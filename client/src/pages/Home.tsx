@@ -75,13 +75,13 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <Link href="/contact" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto h-12 md:h-14 px-6 md:px-8 text-sm md:text-base bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.3)] button-hover">
+                  <Button size="lg" className="w-full sm:w-auto h-11 md:h-12 px-6 md:px-7 text-sm md:text-base bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.3)] button-hover">
                     Schedule Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link href="/services" className="w-full sm:w-auto">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 md:h-14 px-6 md:px-8 text-sm md:text-base text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto h-11 md:h-12 px-6 md:px-7 text-sm md:text-base text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover">
                     Our Services
                   </Button>
                 </Link>
@@ -224,10 +224,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 text-center"
+            className="mt-8 text-center"
           >
             <Link href="/services">
-              <Button variant="outline" size="lg" className="text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover">
+              <Button variant="outline" size="lg" className="text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover h-10 px-6 text-sm">
                 View All Services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -412,15 +412,15 @@ export default function Home() {
             <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
               Schedule a consultation with our compliance experts and discover how we can protect your organization.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/contact">
-                <Button size="lg" className="h-14 md:h-16 px-8 md:px-10 text-base md:text-lg bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.3)] button-hover">
+                <Button size="lg" className="h-11 md:h-12 px-6 md:px-7 text-sm md:text-base bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.3)] button-hover">
                   Get Started Today
-                  <ArrowRight className="ml-3 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/about">
-                <Button variant="outline" size="lg" className="h-14 md:h-16 px-8 md:px-10 text-base md:text-lg text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover">
+                <Button variant="outline" size="lg" className="h-11 md:h-12 px-6 md:px-7 text-sm md:text-base text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover">
                   Learn About Us
                 </Button>
               </Link>

@@ -58,7 +58,7 @@ export function Navbar() {
                             <img
                                 src={logo}
                                 alt="Cealed Logo"
-                                className="h-7 sm:h-8 md:h-10 w-auto object-contain invert transition-transform duration-300 hover:scale-105"
+                                className="h-8 sm:h-10 md:h-12 w-auto object-contain invert transition-transform duration-300 hover:scale-105"
                             />
                         </Link>
 
@@ -95,7 +95,7 @@ export function Navbar() {
                         {/* Mobile Menu Button */}
                         <button
                             type="button"
-                            className="lg:hidden relative z-[60] text-white hover:text-primary focus:outline-none transition-colors duration-300 p-2 -mr-1"
+                            className="lg:hidden relative z-[70] text-white hover:text-primary focus:outline-none transition-colors duration-300 p-3 -mr-2 bg-black/20 rounded-lg backdrop-blur-sm"
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label="Toggle menu"
                         >
@@ -108,7 +108,7 @@ export function Navbar() {
                                         exit={{ rotate: 90, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <X className="h-6 w-6" />
+                                        <X className="h-8 w-8 text-white" />
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -118,7 +118,7 @@ export function Navbar() {
                                         exit={{ rotate: -90, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <Menu className="h-6 w-6" />
+                                        <Menu className="h-8 w-8" />
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -151,7 +151,7 @@ export function Navbar() {
                                 damping: 30,
                                 stiffness: 300,
                             }}
-                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background/98 backdrop-blur-2xl border-l border-white/10 z-50 lg:hidden shadow-2xl"
+                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background/98 backdrop-blur-2xl border-l border-white/10 z-[60] lg:hidden shadow-2xl"
                         >
                             <div className="flex flex-col h-full pt-24 pb-8 px-6">
                                 {/* Navigation Links */}
@@ -191,7 +191,7 @@ export function Navbar() {
                                         href="/contact"
                                         onClick={() => setIsOpen(false)}
                                     >
-                                        <Button className="w-full h-14 text-base font-bold uppercase tracking-widest rounded-lg bg-primary hover:bg-primary/90 button-hover shadow-lg shadow-primary/30">
+                                        <Button className="w-full h-12 text-sm font-semibold rounded-lg bg-primary hover:bg-primary/90 button-hover shadow-lg shadow-primary/30">
                                             Schedule Consultation
                                         </Button>
                                     </Link>
