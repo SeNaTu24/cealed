@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Corporate Dark Theme - High End */
+  --primary: 215 100% 45%;
+  /* More vibrant professional blue */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 25% 10%;
+  /* Deep Charcoal/Blue for dark backgrounds */
+  --secondary-foreground: 210 20% 98%;
+
+  --muted: 220 20% 15%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 200 100% 50%;
+  /* Cyan accent for interactive elements */
+  --accent-foreground: 215 100% 10%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --background: 222 47% 4%;
+  /* Deep Space Blue/Black */
+  --foreground: 210 40% 98%;
+
+  --card: 222 47% 8%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 8%;
+  --popover-foreground: 210 40% 98%;
+
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 215 100% 45%;
+
+  --radius: 0.25rem;
+  /* Sharper, more professional radius */
+
+  /* Custom Font Variables */
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* Sophisticated Spacing System */
+  --section-padding: clamp(4rem, 8vw, 8rem);
+  --container-padding: clamp(1rem, 4vw, 2rem);
+}
+
+@layer base {
+
+  /* Responsive root font-size for consistent scaling across viewports */
+  html {
+    font-size: clamp(14px, 1.3vw + 12px, 18px);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight font-semibold text-foreground;
+  }
+
+  /* Responsive Typography Scale */
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  p {
+    @apply text-sm sm:text-base md:text-base;
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+
+  /* Reusable button component with responsive sizing */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md font-medium transition ease-in-out duration-200 focus-premium;
+    padding: 0.6rem 1rem;
+  }
+
+  .btn-sm {
+    @apply text-sm px-3 py-2;
+  }
+
+  .btn-md {
+    @apply text-base px-4 py-2.5;
+  }
+
+  .btn-lg {
+    @apply text-lg px-6 py-3;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground border border-transparent button-hover;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-foreground border border-border hover:bg-white/3;
+  }
+
+  /* Make interactive elements easier to tap on mobile */
+  a,
+  button,
+  .btn {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+
+  /* Sophisticated Text Gradients */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-200 to-blue-400;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
+  }
+
+  /* Glass Effects */
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-panel-strong {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+
+  /* Button hover and active states */
+  .button-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98];
+  }
+
+  /* Touch-friendly button sizes */
+  .button-mobile {
+    @apply min-h-11 px-3 sm:min-h-10 sm:px-4 md:min-h-12 md:px-6;
+  }
+
+  /* Mobile button with full width option */
+  .button-full-mobile {
+    @apply w-full sm:w-auto;
+  }
+
+  /* Mobile-first responsive spacing */
+  .responsive-gap {
+    @apply gap-3 sm:gap-4 md:gap-6;
+  }
+
+  .responsive-py {
+    @apply py-4 sm:py-6 md:py-8;
+  }
+
+  .responsive-px {
+    @apply px-4 sm:px-6 md:px-8;
+  }
+
+  /* Touch target sizes for mobile */
+  .touch-target {
+    @apply min-h-11 min-w-11 sm:min-h-10 sm:min-w-10;
+  }
+
+  /* Sophisticated Backgrounds */
+  .gradient-mesh {
+    background:
+      radial-gradient(at 0% 0%, hsla(215, 100%, 45%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(200, 100%, 50%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(215, 100%, 45%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(200, 100%, 50%, 0.1) 0px, transparent 50%);
+  }
+
+  /* Premium Shadows */
+  .shadow-premium {
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.1),
+      0 16px 48px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive Container */
+  .container-responsive {
+    @apply mx-auto px-4 sm:px-6 md:px-8 lg:px-8 max-w-7xl;
+  }
+
+  /* Section Spacing - More responsive */
+  .section-padding {
+    @apply py-12 md:py-20;
+  }
+
+  /* Mobile-first padding for sections */
+  .section-padding-mobile {
+    @apply py-8 sm:py-12 md:py-16;
+  }
+
+  /* Animated Underline */
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* Focus Visible Styles */
+  .focus-premium {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
