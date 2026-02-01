@@ -58,7 +58,7 @@ export function Navbar() {
                             <img
                                 src={logo}
                                 alt="Cealed Logo"
-                                className="h-8 sm:h-10 md:h-12 w-auto object-contain invert transition-transform duration-300 hover:scale-105"
+                                className="h-10 sm:h-10 md:h-12 w-auto object-contain invert transition-transform duration-300 hover:scale-105"
                             />
                         </Link>
 
@@ -108,7 +108,7 @@ export function Navbar() {
                                         exit={{ rotate: 90, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <X className="h-8 w-8 text-white" />
+                                        <X className="h-6 w-6 text-white" />
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -118,7 +118,7 @@ export function Navbar() {
                                         exit={{ rotate: -90, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <Menu className="h-8 w-8" />
+                                        <Menu className="h-6 w-6" />
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -153,7 +153,17 @@ export function Navbar() {
                             }}
                             className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background/98 backdrop-blur-2xl border-l border-white/10 z-[60] lg:hidden shadow-2xl"
                         >
-                            <div className="flex flex-col h-full pt-24 pb-8 px-6">
+                            <div className="flex flex-col h-full pt-16 pb-8 px-6">
+                                {/* Close Button */}
+                                <div className="flex justify-end mb-6">
+                                    <button
+                                        onClick={() => setIsOpen(false)}
+                                        className="p-2 text-white hover:text-primary transition-colors bg-white/10 rounded-lg"
+                                    >
+                                        <X className="h-6 w-6" />
+                                    </button>
+                                </div>
+                                
                                 {/* Navigation Links */}
                                 <nav className="flex-1 space-y-2">
                                     {links.map((link, index) => (
