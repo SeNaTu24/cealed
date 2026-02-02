@@ -102,10 +102,31 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["var(--font-sans)"],
-                serif: ["var(--font-serif)"],
-                mono: ["var(--font-mono)"],
-                display: ['"Playfair Display"', "serif"],
+                sans: [
+                    "Helvetica Neue",
+                    "-apple-system",
+                    "BlinkMacSystemFont",
+                    "Segoe UI",
+                    "Roboto",
+                    "sans-serif",
+                ],
+                serif: [
+                    "Helvetica Neue",
+                    "-apple-system",
+                    "BlinkMacSystemFont",
+                    "Segoe UI",
+                    "Roboto",
+                    "sans-serif",
+                ],
+                mono: ["ui-monospace", "monospace"],
+                display: [
+                    "Helvetica Neue",
+                    "-apple-system",
+                    "BlinkMacSystemFont",
+                    "Segoe UI",
+                    "Roboto",
+                    "sans-serif",
+                ],
             },
             keyframes: {
                 "accordion-down": {

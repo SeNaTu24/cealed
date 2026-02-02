@@ -44,7 +44,7 @@ export function Navbar() {
             <nav
                 className={`fixed top-0 z-50 w-full transition-all duration-500 ${
                     scrolled
-                        ? "bg-background/90 backdrop-blur-xl border-b border-white/10 py-2 sm:py-2 md:py-3 shadow-lg shadow-black/5"
+                        ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 py-2 sm:py-2 md:py-3 shadow-lg shadow-black/10"
                         : "bg-transparent py-3 sm:py-4 md:py-6"
                 }`}
             >
@@ -58,7 +58,7 @@ export function Navbar() {
                             <img
                                 src={logo}
                                 alt="Cealed Logo"
-                                className="h-10 sm:h-10 md:h-12 w-auto object-contain invert transition-transform duration-300 hover:scale-105"
+                                className="h-10 sm:h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
                             />
                         </Link>
 
@@ -70,7 +70,11 @@ export function Navbar() {
                                     href={link.href}
                                     className={`text-xs font-medium uppercase tracking-wide transition-all duration-300 link-underline pb-1 ${
                                         location === link.href
-                                            ? "text-primary"
+                                            ? scrolled
+                                                ? "text-black"
+                                                : "text-white"
+                                            : scrolled
+                                            ? "text-gray-700 hover:text-black"
                                             : "text-slate-300 hover:text-white"
                                     }`}
                                 >
@@ -84,7 +88,7 @@ export function Navbar() {
                             <Link href="/contact">
                                 <Button
                                     variant="default"
-                                    size="lg"
+                                    size="default"
                                     className="rounded-md button-hover shadow-lg w-auto"
                                 >
                                     Schedule Consultation
@@ -95,7 +99,11 @@ export function Navbar() {
                         {/* Mobile Menu Button */}
                         <button
                             type="button"
-                            className="lg:hidden relative z-[70] text-white hover:text-primary focus:outline-none transition-colors duration-300 p-3 -mr-2 bg-black/20 rounded-lg backdrop-blur-sm"
+                            className={`lg:hidden relative z-[70] hover:text-primary focus:outline-none transition-colors duration-300 p-3 -mr-2 rounded-lg backdrop-blur-sm ${
+                                scrolled
+                                    ? "text-gray-700 bg-gray-100/50"
+                                    : "text-white bg-black/20"
+                            }`}
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label="Toggle menu"
                         >
@@ -108,7 +116,7 @@ export function Navbar() {
                                         exit={{ rotate: 90, opacity: 0 }}
                                         transition={{ duration: 0.2 }}
                                     >
-                                        <X className="h-6 w-6 text-white" />
+                                        <X className={`h-6 w-6 ${scrolled ? "text-gray-700" : "text-white"}`} />
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -163,7 +171,7 @@ export function Navbar() {
                                         <X className="h-6 w-6" />
                                     </button>
                                 </div>
-                                
+
                                 {/* Navigation Links */}
                                 <nav className="flex-1 space-y-2">
                                     {links.map((link, index) => (
@@ -201,7 +209,10 @@ export function Navbar() {
                                         href="/contact"
                                         onClick={() => setIsOpen(false)}
                                     >
-                                        <Button className="w-full h-12 text-sm font-semibold rounded-lg bg-primary hover:bg-primary/90 button-hover shadow-lg shadow-primary/30">
+                                        <Button
+                                            size="default"
+                                            className="w-full font-medium rounded-md bg-primary hover:bg-primary/90"
+                                        >
                                             Schedule Consultation
                                         </Button>
                                     </Link>

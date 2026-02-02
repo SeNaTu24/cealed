@@ -1,10 +1,10 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { ContactForm } from "@/components/ContactForm";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Contact() {
     return (
-        <div className="min-h-screen pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-24 bg-gradient-to-b from-[#020617] via-slate-900 to-black">
+        <div className="min-h-screen pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-24 bg-[#0f172a] p-4">
             <section className="container-responsive mb-8 sm:mb-12 md:mb-16">
                 <SectionHeader
                     title="Schedule Your Consultation"
@@ -30,8 +30,7 @@ export default function Contact() {
                                             Our Office
                                         </p>
                                         <p className="text-slate-300 text-xs sm:text-sm md:text-base break-words">
-                                            123 Business District, Victoria
-                                            Island,
+                                            Plot 9a, Femi Ogun street, Magodo
                                             <br />
                                             Lagos, Nigeria
                                         </p>
@@ -47,10 +46,10 @@ export default function Contact() {
                                             Phone
                                         </p>
                                         <a
-                                            href="tel:+2340123456789"
+                                            href="tel:+2348143708860"
                                             className="text-slate-300 hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all"
                                         >
-                                            +234 (0) 123 456 7890
+                                            +234 8143708860
                                         </a>
                                     </div>
                                 </div>
@@ -71,20 +70,6 @@ export default function Contact() {
                                         </a>
                                     </div>
                                 </div>
-
-                                <div className="flex items-start space-x-2 sm:space-x-3 md:space-x-4">
-                                    <div className="bg-primary/10 p-2 sm:p-2.5 md:p-3 rounded-lg text-primary shrink-0 flex-shrink-0">
-                                        <Clock className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
-                                    </div>
-                                    <div>
-                                        <p className="font-semibold text-white text-xs sm:text-sm md:text-base">
-                                            Working Hours
-                                        </p>
-                                        <p className="text-slate-300 text-xs sm:text-sm md:text-base">
-                                            Mon - Fri: 9:00 AM - 5:00 PM
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -93,7 +78,11 @@ export default function Contact() {
                                 NDPA Compliance Reminder
                             </h3>
                             <p className="text-slate-300 italic text-xs sm:text-sm md:text-base leading-relaxed">
-                                "UHL and EHL organizations must file an annual Compliance Audit Return (CAR) with the NDPC no later than March 31 each year. Organizations established after June 12, 2023 must file within 15 months of establishment."
+                                "UHL and EHL organizations must file an annual
+                                Compliance Audit Return (CAR) with the NDPC no
+                                later than March 31 each year. Organizations
+                                established after June 12, 2023 must file within
+                                15 months of establishment."
                             </p>
                         </div>
                     </div>

@@ -5,9 +5,9 @@ import { Card } from "@/components/ui/card";
 
 export default function About() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-[#0f172a]">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 bg-[#020617] overflow-hidden">
+      <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
         <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-primary/10 rounded-full blur-[80px] md:blur-[120px]" />
         
@@ -207,7 +207,7 @@ export default function About() {
               { value: "500+", label: "Clients Served", icon: Users },
               { value: "20+", label: "Countries", icon: Globe },
               { value: "98%", label: "Success Rate", icon: Target },
-              { value: "15+", label: "Years Combined", icon: Award },
+              { value: "3+", label: "Years Combined", icon: Award },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

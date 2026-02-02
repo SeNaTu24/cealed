@@ -12,7 +12,7 @@ import {
 
 export default function Training() {
     return (
-        <div className="min-h-screen pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-24 bg-gradient-to-b from-[#020617] via-slate-900 to-black">
+        <div className="min-h-screen pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24 bg-[#0f172a]">
             {/* Header */}
             <section className="container-responsive mb-8 sm:mb-12 md:mb-16">
                 <SectionHeader
@@ -29,12 +29,12 @@ export default function Training() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-white/5 border border-white/10 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl shadow-2xl relative overflow-hidden"
+                        className="bg-white/5 border border-white/10 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl shadow-2xl relative overflow-hidden flex flex-col card-hover"
                     >
                         <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-primary rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px] opacity-20 translate-x-1/2 -translate-y-1/2" />
 
-                        <div className="relative">
-                            <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/20 rounded-lg sm:rounded-xl md:rounded-2xl mb-4 sm:mb-6">
+                        <div className="relative flex-1">
+                            <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/20 rounded-lg sm:rounded-xl md:rounded-2xl mb-4 sm:mb-6 icon-container icon-bounce">
                                 <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-primary" />
                             </div>
 
@@ -42,7 +42,9 @@ export default function Training() {
                                 Corporate Training
                             </h3>
                             <p className="text-slate-300 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
-                                Bespoke data protection training delivered team-by-team or organization-wide over 1-3 weeks, flexibly:
+                                Bespoke data protection training delivered
+                                team-by-team or organization-wide over 1-3
+                                weeks, flexibly:
                             </p>
 
                             <ul className="space-y-2 sm:space-y-3 md:space-y-4 mb-6 sm:mb-8 md:mb-10">
@@ -65,9 +67,11 @@ export default function Training() {
                                     </li>
                                 ))}
                             </ul>
+                        </div>
 
+                        <div className="flex justify-center mt-auto">
                             <Link href="/contact">
-                                <Button className="w-full h-10 sm:h-12 md:h-14 bg-white text-slate-900 hover:bg-slate-100 font-semibold text-sm sm:text-base button-hover rounded-lg md:rounded-xl">
+                                <Button className="bg-white text-slate-900 hover:bg-slate-100 button-hover rounded-lg whitespace-nowrap">
                                     Request Training Brochure
                                 </Button>
                             </Link>
@@ -80,66 +84,77 @@ export default function Training() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="bg-white/5 border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl shadow-xl"
+                        className="bg-white/5 border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl shadow-xl flex flex-col card-hover"
                     >
-                        <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-lg sm:rounded-xl md:rounded-2xl mb-4 sm:mb-6">
-                            <Users className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-primary" />
+                        <div className="relative flex-1">
+                            <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-lg sm:rounded-xl md:rounded-2xl mb-4 sm:mb-6 icon-container icon-spin">
+                                <Users className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-primary" />
+                            </div>
+
+                            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 text-white font-display">
+                                DPO as a Service
+                            </h3>
+                            <p className="text-slate-300 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
+                                Cealed offers outsourced DPO services for
+                                organizations that lack internal capacity,
+                                providing ongoing compliance oversight and
+                                expert guidance.
+                            </p>
+
+                            <div className="space-y-3 sm:space-y-4 md:space-y-5 md:space-y-6 mb-6 sm:mb-8 md:mb-10">
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs sm:text-sm md:text-base shrink-0">
+                                        1
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
+                                            Compliance Oversight
+                                        </h4>
+                                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                            Oversees compliance and advises
+                                            management on data protection
+                                            matters.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs sm:text-sm md:text-base shrink-0">
+                                        2
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
+                                            NDPC Liaison
+                                        </h4>
+                                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                            Acts as liaison with NDPC and
+                                            handles data subject requests.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs sm:text-sm md:text-base shrink-0">
+                                        3
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
+                                            Incident Response
+                                        </h4>
+                                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                            Provides incident response guidance
+                                            and delivers compliance reports.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 text-white font-display">
-                            DPO as a Service
-                        </h3>
-                        <p className="text-slate-300 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
-                            Cealed offers outsourced DPO services for organizations that lack internal capacity, providing ongoing compliance oversight and expert guidance.
-                        </p>
-
-                        <div className="space-y-3 sm:space-y-4 md:space-y-5 md:space-y-6 mb-6 sm:mb-8 md:mb-10">
-                            <div className="flex gap-2 sm:gap-3 md:gap-4">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs sm:text-sm md:text-base shrink-0">
-                                    1
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
-                                        Compliance Oversight
-                                    </h4>
-                                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                                        Oversees compliance and advises management on data protection matters.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex gap-2 sm:gap-3 md:gap-4">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs sm:text-sm md:text-base shrink-0">
-                                    2
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
-                                        NDPC Liaison
-                                    </h4>
-                                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                                        Acts as liaison with NDPC and handles data subject requests.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex gap-2 sm:gap-3 md:gap-4">
-                                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xs sm:text-sm md:text-base shrink-0">
-                                    3
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
-                                        Incident Response
-                                    </h4>
-                                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                                        Provides incident response guidance and delivers compliance reports.
-                                    </p>
-                                </div>
-                            </div>
+                        <div className="flex justify-center mt-auto">
+                            <Link href="/contact">
+                                <Button className="shadow-lg shadow-primary/20 button-hover rounded-lg whitespace-nowrap">
+                                    Hire a Virtual DPO
+                                </Button>
+                            </Link>
                         </div>
-
-                        <Link href="/contact">
-                            <Button className="w-full h-10 sm:h-12 md:h-14 shadow-lg shadow-primary/20 button-hover rounded-lg md:rounded-xl font-semibold text-sm sm:text-base">
-                                Hire a Virtual DPO
-                            </Button>
-                        </Link>
                     </motion.div>
                 </div>
             </section>
@@ -156,7 +171,7 @@ export default function Training() {
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 font-display">
                             Why Choose Our Training?
                         </h2>
-                        <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+                        <p className="text-base md:text-lg text-white max-w-2xl mx-auto">
                             Practical, engaging, and tailored to your
                             organization's specific needs and compliance
                             requirements.
@@ -221,9 +236,8 @@ export default function Training() {
                     </p>
                     <Link href="/contact">
                         <Button
-                            size="lg"
                             variant="secondary"
-                            className="h-12 md:h-14 px-8 md:px-12 bg-white text-primary hover:bg-slate-100 font-bold button-hover shadow-xl w-full sm:w-auto"
+                            className="bg-white text-primary hover:bg-slate-100 button-hover shadow-xl w-full sm:w-auto"
                         >
                             Schedule a Consultation
                         </Button>

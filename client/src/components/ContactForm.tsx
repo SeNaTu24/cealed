@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertInquirySchema, type InsertInquiry } from "@/lib/schema";
-import { useCreateInquiry } from "@/hooks/use-inquiries";
 import {
     Form,
     FormControl,
@@ -14,9 +14,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Loader2, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
-    const mutation = useCreateInquiry();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const { toast } = useToast();
 
     const form = useForm<InsertInquiry>({
         resolver: zodResolver(insertInquirySchema),
@@ -29,12 +31,42 @@ export function ContactForm() {
         },
     });
 
-    const onSubmit = (data: InsertInquiry) => {
-        mutation.mutate(data, {
-            onSuccess: () => {
+    const onSubmit = async (data: InsertInquiry) => {
+        setIsSubmitting(true);
+        
+        try {
+            const formData = new FormData();
+            formData.append('name', data.name);
+            formData.append('email', data.email);
+            formData.append('company', data.company || '');
+            formData.append('subject', data.subject);
+            formData.append('message', data.message);
+            formData.append('_next', window.location.origin + '/contact');
+            formData.append('_subject', `New Contact Form Submission: ${data.subject}`);
+            
+            const response = await fetch('https://formsubmit.co/e.olusesi@mustarred.com', {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (response.ok) {
+                toast({
+                    title: "Message Sent",
+                    description: "We have received your message and will contact you shortly.",
+                });
                 form.reset();
-            },
-        });
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } catch (error) {
+            toast({
+                title: "Submission Failed",
+                description: "Something went wrong. Please try again.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -154,10 +186,11 @@ export function ContactForm() {
 
                 <Button
                     type="submit"
-                    disabled={mutation.isPending}
-                    className="w-full h-11 sm:h-12 md:h-14 text-sm sm:text-base font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 button-hover"
+                    disabled={isSubmitting}
+                    size="default"
+                    className="w-full font-semibold shadow-lg shadow-primary/20 hover:shadow-primary/30 button-hover"
                 >
-                    {mutation.isPending ? (
+                    {isSubmitting ? (
                         <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                             Sending...

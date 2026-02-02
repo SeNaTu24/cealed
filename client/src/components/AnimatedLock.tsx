@@ -397,12 +397,12 @@ export function AnimatedLock() {
 
             {/* Hover instruction */}
             <motion.div
-                className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-center"
+                className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2 }}
             >
-                <p className="text-sm sm:text-base text-slate-400 font-medium">
+                <p className="text-xs sm:text-sm text-slate-400 font-medium text-center px-4">
                     {isHovered
                         ? "Security threats detected!"
                         : "Hover to reveal threats"}

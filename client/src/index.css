@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap');
+/* Using system fonts - Helvetica Neue or system fallbacks */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Corporate Dark Theme - High End */
+  /* Corporate Dark Theme - Lightened for better contrast */
   --primary: 215 100% 45%;
   /* More vibrant professional blue */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 220 25% 10%;
-  /* Deep Charcoal/Blue for dark backgrounds */
+  --secondary: 220 25% 18%;
+  /* Slightly lighter dark background */
   --secondary-foreground: 210 20% 98%;
 
-  --muted: 220 20% 15%;
+  --muted: 220 20% 24%;
   --muted-foreground: 215 20% 65%;
 
   --accent: 200 100% 50%;
@@ -24,26 +24,28 @@
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
 
-  --background: 222 47% 4%;
-  /* Deep Space Blue/Black */
+  --background: 222 47% 12%;
+  /* Lighter dark blue/black background */
   --foreground: 210 40% 98%;
 
-  --card: 222 47% 8%;
+  --card: 222 47% 16%;
+  /* Lighter cards */
   --card-foreground: 210 40% 98%;
 
-  --popover: 222 47% 8%;
+  --popover: 222 47% 16%;
   --popover-foreground: 210 40% 98%;
 
-  --border: 217 33% 17%;
-  --input: 217 33% 17%;
+  --border: 217 33% 26%;
+  /* Lighter borders for better visibility */
+  --input: 217 33% 24%;
   --ring: 215 100% 45%;
 
   --radius: 0.25rem;
   /* Sharper, more professional radius */
 
   /* Custom Font Variables */
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Sophisticated Spacing System */
   --section-padding: clamp(4rem, 8vw, 8rem);
@@ -54,10 +56,11 @@
 
   /* Responsive root font-size for consistent scaling across viewports */
   html {
-    font-size: clamp(14px, 1.3vw + 12px, 18px);
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.45;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
   }
 
   * {
@@ -78,28 +81,36 @@
   h5,
   h6 {
     font-family: var(--font-display);
-    @apply tracking-tight font-semibold text-foreground;
+    @apply text-foreground;
+    font-weight: 400;
+    letter-spacing: -0.5px;
   }
 
   /* Responsive Typography Scale */
   h1 {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+    @apply text-4xl sm:text-5xl md:text-6xl;
+    font-weight: 300;
   }
 
   h2 {
-    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+    @apply text-3xl sm:text-4xl md:text-5xl;
+    font-weight: 400;
   }
 
   h3 {
-    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+    @apply text-2xl sm:text-3xl md:text-4xl;
+    font-weight: 400;
   }
 
   h4 {
-    @apply text-base sm:text-lg md:text-xl;
+    @apply text-xl sm:text-2xl md:text-3xl;
+    font-weight: 500;
   }
 
   p {
-    @apply text-sm sm:text-base md:text-base;
+    @apply text-base sm:text-base md:text-base;
+    font-weight: 400;
+    line-height: 1.5;
   }
 
   /* Smooth Scrolling */
@@ -118,20 +129,26 @@
 
   /* Reusable button component with responsive sizing */
   .btn {
-    @apply inline-flex items-center justify-center rounded-md font-medium transition ease-in-out duration-200 focus-premium;
-    padding: 0.6rem 1rem;
+    @apply inline-flex items-center justify-center rounded-md transition ease-in-out duration-200 focus-premium;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    padding: 12px 24px;
   }
 
   .btn-sm {
-    @apply text-sm px-3 py-2;
+    @apply px-3 py-2;
+    font-size: 13px;
   }
 
   .btn-md {
-    @apply text-base px-4 py-2.5;
+    @apply px-4 py-2.5;
+    font-size: 14px;
   }
 
   .btn-lg {
-    @apply text-lg px-6 py-3;
+    @apply px-6 py-3;
+    font-size: 16px;
   }
 
   .btn-primary {
@@ -229,6 +246,97 @@
   /* Section Spacing - More responsive */
   .section-padding {
     @apply py-12 md:py-20;
+  }
+
+  /* Animated Icon Container */
+  .icon-container {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .icon-container:hover {
+    animation: iconBounce 0.6s ease-out;
+    transform: scale(1.1);
+  }
+
+  /* Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply scale-105;
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+  }
+
+  /* Button Ripple Effect */
+  .btn-ripple {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
+  }
+
+  .btn-ripple:active::after {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Icon Animations */
+  @keyframes iconBounce {
+    0% {
+      transform: scale(1) translateY(0);
+    }
+
+    50% {
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    100% {
+      transform: scale(1.1) translateY(0);
+    }
+  }
+
+  @keyframes iconSpin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes iconPulse {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+
+  .icon-spin:hover {
+    animation: iconSpin 0.8s ease-out;
+  }
+
+  .icon-pulse:hover {
+    animation: iconPulse 0.6s ease-in-out;
   }
 
   /* Mobile-first padding for sections */
