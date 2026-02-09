@@ -37,11 +37,9 @@ export default function Home() {
                                 Trust • Security • Compliance
                             </span>
 
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white font-display leading-tight mb-6">
-                                Data Privacy &<br />
-                                <span className="text-white">
-                                    Regulatory Compliance
-                                </span>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-display leading-tight mb-6">
+                                <span className="block text-white mb-2">Sealing compliance gaps,</span>
+                                <span className="block text-white">one African business at a time</span>
                             </h1>
 
                             <p className="text-base md:text-lg leading-relaxed text-blue-100 max-w-xl mb-8">
@@ -52,7 +50,7 @@ export default function Home() {
                             </p>
 
                             {/* Key Points */}
-                            <div className="space-y-3 mb-10">
+                            <div className="space-y-3 mb-6">
                                 {[
                                     "NDPA & GDPR Compliance Expertise",
                                     "Financial Services & Fintech Focus",

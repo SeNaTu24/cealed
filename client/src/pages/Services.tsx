@@ -11,6 +11,7 @@ import {
     GraduationCap,
     ArrowRight,
     CheckCircle2,
+    Crosshair,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
@@ -107,18 +108,22 @@ export default function Services() {
             ],
         },
         {
-            id: "monitoring-evaluation",
-            icon: Shield,
-            title: "Monitoring, Evaluation & Maintenance (MEM)",
+            id: "offensive-security",
+            icon: Crosshair,
+            title: "Offensive Security",
             description:
-                "Ongoing compliance support through security monitoring, vulnerability detection, and remediation.",
+                "Proactive security testing to identify vulnerabilities before attackers do, with comprehensive penetration testing and security assessments.",
             features: [
-                "Security system monitoring",
-                "Vulnerability detection and assessment",
-                "Remediation recommendations",
-                "Staff accountability matrices",
-                "Semi-annual system health reports",
-                "Continuous compliance improvement",
+                "External & Internal Network Penetration Testing",
+                "Web Application Security Testing (OWASP Top 10)",
+                "Mobile Application Security Assessment",
+                "API & Cloud Infrastructure Security Testing",
+                "Compliance-Aligned Testing (SOC 2, ISO 27001, PCI DSS)",
+                "Social Engineering & Phishing Simulation",
+                "Vulnerability Assessment & Risk Scoring",
+                "Detailed Reporting with Proof-of-Concept Evidence",
+                "Remediation Guidance & Fix Instructions",
+                "Retesting & Vulnerability Verification",
             ],
         },
     ];
@@ -157,7 +162,7 @@ export default function Services() {
             {/* Services Grid */}
             <section className="section-padding bg-[#030712]">
                 <div className="container-responsive">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                         {services.map((service, index) => (
                             <motion.div
                                 key={service.id}
@@ -171,18 +176,18 @@ export default function Services() {
                                         <service.icon className="h-7 w-7 text-primary" />
                                     </div>
 
-                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 font-display group-hover:text-primary transition-colors">
+                                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 font-display group-hover:text-primary transition-colors">
                                         {service.title}
                                     </h3>
 
-                                    <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
                                         {service.description}
                                     </p>
 
                                     <div className="mt-auto">
                                         <div className="h-px w-full bg-white/10 mb-5" />
                                         <ul className="space-y-2.5">
-                                            {service.features.map(
+                                            {service.features.slice(0, 4).map(
                                                 (feature, idx) => (
                                                     <li
                                                         key={idx}
@@ -194,6 +199,11 @@ export default function Services() {
                                                         </span>
                                                     </li>
                                                 ),
+                                            )}
+                                            {service.features.length > 4 && (
+                                                <li className="text-xs text-primary/60 italic pt-1">
+                                                    +{service.features.length - 4} more features
+                                                </li>
                                             )}
                                         </ul>
                                     </div>

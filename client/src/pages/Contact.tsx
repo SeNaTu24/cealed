@@ -63,10 +63,10 @@ export default function Contact() {
                                             Email
                                         </p>
                                         <a
-                                            href="mailto:info@cealed.com"
+                                            href="mailto:info@cealed.co"
                                             className="text-slate-300 hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all"
                                         >
-                                            info@cealed.com
+                                            info@cealed.co
                                         </a>
                                     </div>
                                 </div>

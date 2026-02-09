@@ -206,10 +206,10 @@ export function Footer() {
                             <li className="flex items-center space-x-3 group">
                                 <Mail className="h-5 w-5 shrink-0 text-primary group-hover:scale-110 transition-transform duration-300" />
                                 <a
-                                    href="mailto:info@cealed.com"
+                                    href="mailto:info@cealed.co"
                                     className="text-slate-400 hover:text-white transition-colors"
                                 >
-                                    info@cealed.com
+                                    info@cealed.co
                                 </a>
                             </li>
                         </ul>
