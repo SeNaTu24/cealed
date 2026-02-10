@@ -372,7 +372,7 @@ export default function Services() {
                                     <div className="mt-auto">
                                         <div className="h-px w-full bg-white/10 mb-5" />
                                         <ul className="space-y-2.5">
-                                            {service.features.slice(0, 4).map(
+                                            {service.features.map(
                                                 (feature, idx) => (
                                                     <li
                                                         key={idx}
@@ -384,11 +384,6 @@ export default function Services() {
                                                         </span>
                                                     </li>
                                                 ),
-                                            )}
-                                            {service.features.length > 4 && (
-                                                <li className="text-xs text-primary/60 italic pt-1">
-                                                    +{service.features.length - 4} more features
-                                                </li>
                                             )}
                                         </ul>
                                     </div>
