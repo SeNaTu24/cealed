@@ -12,121 +12,283 @@ import {
     ArrowRight,
     CheckCircle2,
     Crosshair,
+    Brain,
+    Target,
+    AlertTriangle,
+    FileText,
+    UserCog,
+    Network,
+    Activity,
+    BookOpen,
+    BarChart3,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
 
 export default function Services() {
-    const services = [
-        {
-            id: "ndpa-compliance-audit",
-            icon: Shield,
-            title: "NDPA Privacy Compliance Audit",
-            description:
-                "Structured audit to help organizations meet NDPA and GAID requirements efficiently and correctly for UHL, EHL, and OHL classifications.",
-            features: [
-                "Comprehensive 6-week audit process",
-                "Privacy governance framework review",
-                "Website, web app, and mobile app analysis",
-                "Third-party data processor assessment",
-                "Regulatory audit report preparation",
-                "NDPC filing and trustmark issuance",
-            ],
-        },
-        {
-            id: "dpia-services",
-            icon: FileCheck,
-            title: "Data Protection Impact Assessment (DPIA)",
-            description:
-                "Risk-prevention tool for high-risk data processing activities under NDPA and GAID requirements.",
-            features: [
-                "Three-part test application (Purpose, Necessity, Balancing)",
-                "Structured templates and records",
-                "Safeguard recommendations",
-                "Documentation suitable for regulators",
-                "Risk mitigation strategies",
-                "Ongoing DPIA monitoring",
-            ],
-        },
-        {
-            id: "privacy-policies",
-            icon: Lock,
-            title: "Privacy Policies & Documentation",
-            description:
-                "NDPA-aligned privacy policies that are practical and reflective of real operations.",
-            features: [
-                "NDPA-compliant policy development",
-                "Privacy notice optimization",
-                "Contract review and modification",
-                "Data processing agreements",
-                "Employee privacy policies",
-                "Cookie and tracking policies",
-            ],
-        },
-        {
-            id: "dpo-service",
-            icon: Users,
-            title: "Data Protection Officer (DPO) as a Service",
-            description:
-                "Outsourced DPO services for organizations lacking internal capacity, providing ongoing compliance oversight.",
-            features: [
-                "Compliance oversight and monitoring",
-                "Management advisory services",
-                "NDPC liaison and communication",
-                "Data subject request handling",
-                "Incident response guidance",
-                "Semi-annual data protection reports",
-            ],
-        },
-        {
-            id: "registration-services",
-            icon: Briefcase,
-            title: "Data Controller/Processor Registration",
-            description:
-                "Support for NDPC classification, registration, and annual renewals to avoid penalties or suspension.",
-            features: [
-                "NDPC classification advisory (UHL, EHL, OHL)",
-                "Initial registration support",
-                "Annual renewal management",
-                "Filing reminders and deadlines",
-                "Regulator liaison services",
-                "Compliance audit return (CAR) preparation",
-            ],
-        },
-        {
-            id: "training-awareness",
-            icon: GraduationCap,
-            title: "Training & Awareness Programs",
-            description:
-                "Bespoke data protection training delivered team-by-team or organization-wide over 1-3 weeks.",
-            features: [
-                "Privacy fundamentals training",
-                "Data processing principles",
-                "DPIA and third-party audit training",
-                "Data breach response procedures",
-                "Internal compliance monitoring",
-                "Specialized DPO certification training",
-            ],
-        },
-        {
-            id: "offensive-security",
-            icon: Crosshair,
-            title: "Offensive Security",
-            description:
-                "Proactive security testing to identify vulnerabilities before attackers do, with comprehensive penetration testing and security assessments.",
-            features: [
-                "External & Internal Network Penetration Testing",
-                "Web Application Security Testing (OWASP Top 10)",
-                "Mobile Application Security Assessment",
-                "API & Cloud Infrastructure Security Testing",
-                "Compliance-Aligned Testing (SOC 2, ISO 27001, PCI DSS)",
-                "Social Engineering & Phishing Simulation",
-                "Vulnerability Assessment & Risk Scoring",
-                "Detailed Reporting with Proof-of-Concept Evidence",
-                "Remediation Guidance & Fix Instructions",
-                "Retesting & Vulnerability Verification",
-            ],
-        },
+    const [activeTab, setActiveTab] = useState("data-privacy");
+
+    const categories = [
+        { id: "data-privacy", label: "Data Privacy & Compliance" },
+        { id: "security", label: "Security Services" },
+        { id: "ai-governance", label: "AI Governance" },
+        { id: "training", label: "Training & Support" },
     ];
+
+    const services = {
+        "data-privacy": [
+            {
+                id: "ndpa-compliance-audit",
+                icon: Shield,
+                title: "NDPA Privacy Compliance Audit",
+                description:
+                    "Structured audit to help organizations meet NDPA and GAID requirements efficiently and correctly for UHL, EHL, and OHL classifications.",
+                features: [
+                    "Comprehensive 6-week audit process",
+                    "Privacy governance framework review",
+                    "Website, web app, and mobile app analysis",
+                    "Third-party data processor assessment",
+                    "Regulatory audit report preparation",
+                    "NDPC filing and trustmark issuance",
+                ],
+            },
+            {
+                id: "dpia-services",
+                icon: FileCheck,
+                title: "Data Protection Impact Assessment (DPIA)",
+                description:
+                    "Risk-prevention tool for high-risk data processing activities under NDPA and GAID requirements.",
+                features: [
+                    "Three-part test application (Purpose, Necessity, Balancing)",
+                    "Structured templates and records",
+                    "Safeguard recommendations",
+                    "Documentation suitable for regulators",
+                    "Risk mitigation strategies",
+                    "Ongoing DPIA monitoring",
+                ],
+            },
+            {
+                id: "privacy-policies",
+                icon: Lock,
+                title: "Privacy Policies & Documentation",
+                description:
+                    "NDPA-aligned privacy policies that are practical and reflective of real operations.",
+                features: [
+                    "NDPA-compliant policy development",
+                    "Privacy notice optimization",
+                    "Contract review and modification",
+                    "Data processing agreements",
+                    "Employee privacy policies",
+                    "Cookie and tracking policies",
+                ],
+            },
+            {
+                id: "registration-services",
+                icon: Briefcase,
+                title: "Data Controller/Processor Registration",
+                description:
+                    "Support for NDPC classification, registration, and annual renewals to avoid penalties or suspension.",
+                features: [
+                    "NDPC classification advisory (UHL, EHL, OHL)",
+                    "Initial registration support",
+                    "Annual renewal management",
+                    "Filing reminders and deadlines",
+                    "Regulator liaison services",
+                    "Compliance audit return (CAR) preparation",
+                ],
+            },
+            {
+                id: "dpo-service",
+                icon: Users,
+                title: "Data Protection Officer (DPO) as a Service",
+                description:
+                    "Outsourced DPO services for organizations lacking internal capacity, providing ongoing compliance oversight.",
+                features: [
+                    "Compliance oversight and monitoring",
+                    "Management advisory services",
+                    "NDPC liaison and communication",
+                    "Data subject request handling",
+                    "Incident response guidance",
+                    "Semi-annual data protection reports",
+                ],
+            },
+        ],
+        "security": [
+            {
+                id: "offensive-security",
+                icon: Crosshair,
+                title: "Offensive Security",
+                description:
+                    "Proactive security testing to identify vulnerabilities before attackers do, with comprehensive penetration testing and security assessments.",
+                features: [
+                    "External & Internal Network Penetration Testing",
+                    "Web Application Security Testing (OWASP Top 10)",
+                    "Mobile Application Security Assessment",
+                    "API & Cloud Infrastructure Security Testing",
+                    "Compliance-Aligned Testing (SOC 2, ISO 27001, PCI DSS)",
+                    "Social Engineering & Phishing Simulation",
+                    "Vulnerability Assessment & Risk Scoring",
+                    "Detailed Reporting with Proof-of-Concept Evidence",
+                    "Remediation Guidance & Fix Instructions",
+                    "Retesting & Vulnerability Verification",
+                ],
+            },
+        ],
+        "ai-governance": [
+            {
+                id: "ai-governance-audit",
+                icon: Brain,
+                title: "AI Governance & ISO/IEC 42001 Readiness Audit",
+                description:
+                    "Structured assessment to help organisations understand and meet AI governance, risk, and regulatory requirements under global frameworks such as ISO/IEC 42001, the EU AI Act, and the NIST AI Risk Management Framework.",
+                features: [
+                    "Comprehensive 6–8 week assessment process",
+                    "AI governance structure and accountability review",
+                    "AI use-case, system, and model inventory analysis",
+                    "AI lifecycle and risk management evaluation",
+                    "Gap analysis against ISO/IEC 42001 and applicable regulations",
+                    "Executive-level audit report and implementation roadmap",
+                ],
+            },
+            {
+                id: "ai-maturity",
+                icon: Target,
+                title: "AI Maturity Assessment",
+                description:
+                    "A structured evaluation of your organisation's AI governance posture and management across its operations.",
+                features: [
+                    "AI maturity scoring across governance, risk, data, lifecycle, and oversight",
+                    "Use-case risk classification",
+                    "Organisational readiness assessment",
+                    "Benchmarking against industry and regulatory expectations",
+                    "Prioritised improvement roadmap",
+                    "Report for management",
+                ],
+            },
+            {
+                id: "ai-impact-assessment",
+                icon: AlertTriangle,
+                title: "AI Impact Assessment (AIIA)",
+                description:
+                    "Risk-prevention and accountability tool for AI systems with potential legal, ethical, or operational impact.",
+                features: [
+                    "AI system purpose and context assessment",
+                    "Bias, fairness, and discrimination risk analysis",
+                    "Transparency and explainability assessment",
+                    "Human oversight and intervention analysis",
+                    "Risk mitigation and control recommendations",
+                    "Documentation suitable for regulators and auditors",
+                ],
+            },
+            {
+                id: "ai-policies",
+                icon: FileText,
+                title: "Responsible AI Policies & Documentation",
+                description:
+                    "Practical AI governance documentation aligned with real-world AI deployment and regulatory expectations.",
+                features: [
+                    "Responsible AI policy development",
+                    "AI risk management framework",
+                    "AI lifecycle and model governance documentation",
+                    "Human-in-the-loop and escalation policies",
+                    "AI transparency and disclosure documentation",
+                    "Internal AI registers and system records",
+                ],
+            },
+            {
+                id: "ai-governance-officer",
+                icon: UserCog,
+                title: "AI Governance Officer as a Service",
+                description:
+                    "Outsourced AI governance leadership for organisations without internal AI governance capacity.",
+                features: [
+                    "Ongoing AI governance oversight and advisory",
+                    "AI risk and use-case review support",
+                    "Executive and product team advisory",
+                    "Regulatory and supervisory engagement support",
+                    "AI incident and escalation management",
+                    "Periodic AI governance reporting",
+                ],
+            },
+            {
+                id: "vendor-ai-risk",
+                icon: Network,
+                title: "Third-Party & Vendor AI Risk Assessment",
+                description:
+                    "Assessment and monitoring of AI vendors, tools, APIs, and embedded models to reduce external AI risk exposure.",
+                features: [
+                    "AI vendor risk classification",
+                    "Contractual and governance control review",
+                    "Embedded and outsourced model assessments",
+                    "Ongoing third-party AI monitoring",
+                    "Risk mitigation and remediation guidance",
+                    "Supplier governance documentation",
+                ],
+            },
+            {
+                id: "ai-incident-response",
+                icon: Activity,
+                title: "AI Incident, Failure & Model Drift Response",
+                description:
+                    "Preparation and response planning for AI-specific incidents and failures.",
+                features: [
+                    "AI incident and failure scenario planning",
+                    "Model drift and performance degradation controls",
+                    "Bias and hallucination incident response",
+                    "Escalation and human intervention workflows",
+                    "Incident documentation and reporting",
+                    "Post-incident review and improvement actions",
+                ],
+            },
+            {
+                id: "ai-monitoring",
+                icon: BarChart3,
+                title: "Monitoring, Evaluation & Maintenance (AI-MEM)",
+                description:
+                    "Ongoing AI governance support to ensure AI systems remain compliant, ethical, and well-controlled over time.",
+                features: [
+                    "Continuous AI governance monitoring",
+                    "Periodic AI risk and impact reviews",
+                    "Key Performance Indicator (KPI) and Key Risk Indicator (KRI) tracking",
+                    "Governance effectiveness assessments",
+                    "Semi-annual AI governance health reports",
+                    "Continuous improvement and regulatory updates",
+                ],
+            },
+        ],
+        "training": [
+            {
+                id: "training-awareness",
+                icon: GraduationCap,
+                title: "Data Protection Training & Awareness",
+                description:
+                    "Bespoke data protection training delivered team-by-team or organization-wide over 1-3 weeks.",
+                features: [
+                    "Privacy fundamentals training",
+                    "Data processing principles",
+                    "DPIA and third-party audit training",
+                    "Data breach response procedures",
+                    "Internal compliance monitoring",
+                    "Specialized DPO certification training",
+                ],
+            },
+            {
+                id: "ai-training",
+                icon: BookOpen,
+                title: "AI Governance Training & Awareness Programs",
+                description:
+                    "Bespoke AI governance and responsible AI training delivered team-by-team or organisation-wide.",
+                features: [
+                    "AI governance fundamentals training",
+                    "Responsible AI and ethical risk awareness",
+                    "Product and engineering-focused AI governance training",
+                    "Executive and board-level AI risk briefings",
+                    "AI incident and escalation training",
+                    "Role-specific training modules",
+                ],
+            },
+        ],
+    };
 
     return (
         <div className="flex flex-col min-h-screen bg-[#0f172a]">
@@ -159,16 +321,39 @@ export default function Services() {
                 </div>
             </section>
 
-            {/* Services Grid */}
+            {/* Category Tabs */}
             <section className="section-padding bg-[#030712]">
                 <div className="container-responsive">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                        {services.map((service, index) => (
+                    {/* Tabs */}
+                    <div className="flex flex-wrap gap-3 mb-12 justify-center">
+                        {categories.map((category) => (
+                            <button
+                                key={category.id}
+                                onClick={() => setActiveTab(category.id)}
+                                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                                    activeTab === category.id
+                                        ? "bg-primary text-white shadow-[0_0_30px_rgba(37,99,235,0.3)]"
+                                        : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10"
+                                }`}
+                            >
+                                {category.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Services Grid */}
+                    <motion.div
+                        key={activeTab}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                    >
+                        {services[activeTab].map((service, index) => (
                             <motion.div
                                 key={service.id}
                                 initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                             >
                                 <Card className="h-full p-6 md:p-8 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300 card-hover group flex flex-col">
@@ -194,7 +379,7 @@ export default function Services() {
                                                         className="flex items-start gap-2.5"
                                                     >
                                                         <CheckCircle2 className="h-4 w-4 text-primary/60 shrink-0 mt-0.5" />
-                                                        <span className="text-xs text-slate-500">
+                                                        <span className="text-xs text-slate-300">
                                                             {feature}
                                                         </span>
                                                     </li>
@@ -210,7 +395,7 @@ export default function Services() {
                                 </Card>
                             </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
