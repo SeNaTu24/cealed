@@ -15,14 +15,14 @@ export function SectionHeader({
 }: SectionHeaderProps) {
     return (
         <div
-            className={`mb-6 sm:mb-8 md:mb-12 ${align === "center" ? "text-center" : "text-left"} ${className}`}
+            className={`mb-8 sm:mb-10 lg:mb-12 ${align === "center" ? "text-center" : "text-left"} ${className}`}
         >
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-display"
+                transition={{ duration: 0.4 }}
+                className="text-display-lg text-foreground"
             >
                 {title}
             </motion.h2>
@@ -31,14 +31,14 @@ export function SectionHeader({
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className={`mt-2 sm:mt-3 md:mt-4 text-sm xs:text-base sm:text-base md:text-lg text-slate-400 max-w-2xl ${align === "center" ? "mx-auto" : ""}`}
+                    transition={{ duration: 0.4, delay: 0.08 }}
+                    className={`mt-3 text-body text-slate-400 max-w-2xl ${align === "center" ? "mx-auto" : ""}`}
                 >
                     {subtitle}
                 </motion.p>
             )}
             <div
-                className={`mt-3 md:mt-4 h-1 w-12 sm:w-16 md:w-20 bg-primary rounded-full ${align === "center" ? "mx-auto" : ""}`}
+                className={`mt-3 h-1 w-16 bg-primary rounded-full ${align === "center" ? "mx-auto" : ""}`}
             />
         </div>
     );

@@ -43,14 +43,14 @@ export function Navbar() {
     return (
         <>
             <nav
-                className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+                className={`fixed top-0 z-50 w-full transition-all duration-300 ${
                     scrolled
-                        ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 py-2 sm:py-2 md:py-3 shadow-lg shadow-black/10"
-                        : "bg-transparent py-3 sm:py-4 md:py-6"
+                        ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 py-2 sm:py-3 shadow-sm shadow-black/5"
+                        : "bg-transparent py-3 sm:py-4"
                 }`}
             >
                 <div className="container-responsive">
-                    <div className="flex h-11 sm:h-12 md:h-14 items-center justify-between">
+                    <div className="flex h-12 items-center justify-between">
                         {/* Logo */}
                         <Link
                             href="/"
@@ -59,17 +59,17 @@ export function Navbar() {
                             <img
                                 src={logo}
                                 alt="Cealed Logo"
-                                className="h-10 sm:h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                                className="h-9 sm:h-10 w-auto object-contain transition-transform duration-200 hover:scale-105"
                             />
                         </Link>
 
                         {/* Desktop Nav - Centered */}
-                        <div className="hidden lg:flex lg:items-center lg:space-x-8 xl:space-x-10 absolute left-1/2 transform -translate-x-1/2">
+                        <div className="hidden lg:flex lg:items-center lg:space-x-6 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
                             {links.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`text-xs font-medium uppercase tracking-wide transition-all duration-300 link-underline pb-1 ${
+                                    className={`text-xs font-medium uppercase tracking-wide transition-all duration-200 link-underline pb-1 ${
                                         location === link.href
                                             ? scrolled
                                                 ? "text-black"
@@ -90,7 +90,7 @@ export function Navbar() {
                                 <Button
                                     variant="default"
                                     size="default"
-                                    className="rounded-md button-hover shadow-lg w-auto"
+                                    className="rounded-md button-hover shadow-sm w-auto"
                                 >
                                     Schedule Consultation
                                 </Button>
@@ -100,7 +100,7 @@ export function Navbar() {
                         {/* Mobile Menu Button */}
                         <button
                             type="button"
-                            className={`lg:hidden relative z-[70] hover:text-primary focus:outline-none transition-colors duration-300 p-3 -mr-2 rounded-lg backdrop-blur-sm ${
+                            className={`lg:hidden relative z-[70] hover:text-primary focus:outline-none transition-colors duration-200 p-2 -mr-2 rounded-lg backdrop-blur-sm ${
                                 scrolled
                                     ? "text-gray-700 bg-gray-100/50"
                                     : "text-white bg-black/20"
@@ -115,9 +115,9 @@ export function Navbar() {
                                         initial={{ rotate: -90, opacity: 0 }}
                                         animate={{ rotate: 0, opacity: 1 }}
                                         exit={{ rotate: 90, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
+                                        transition={{ duration: 0.15 }}
                                     >
-                                        <X className={`h-6 w-6 ${scrolled ? "text-gray-700" : "text-white"}`} />
+                                        <X className={`h-5 w-5 ${scrolled ? "text-gray-700" : "text-white"}`} />
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -125,9 +125,9 @@ export function Navbar() {
                                         initial={{ rotate: 90, opacity: 0 }}
                                         animate={{ rotate: 0, opacity: 1 }}
                                         exit={{ rotate: -90, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
+                                        transition={{ duration: 0.15 }}
                                     >
-                                        <Menu className="h-6 w-6" />
+                                        <Menu className="h-5 w-5" />
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -160,33 +160,33 @@ export function Navbar() {
                                 damping: 30,
                                 stiffness: 300,
                             }}
-                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background/98 backdrop-blur-2xl border-l border-white/10 z-[60] lg:hidden shadow-2xl"
+                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background/98 backdrop-blur-2xl border-l border-white/10 z-[60] lg:hidden shadow-xl"
                         >
-                            <div className="flex flex-col h-full pt-16 pb-8 px-6">
+                            <div className="flex flex-col h-full pt-14 pb-6 px-5">
                                 {/* Close Button */}
-                                <div className="flex justify-end mb-6">
+                                <div className="flex justify-end mb-4">
                                     <button
                                         onClick={() => setIsOpen(false)}
                                         className="p-2 text-white hover:text-primary transition-colors bg-white/10 rounded-lg"
                                     >
-                                        <X className="h-6 w-6" />
+                                        <X className="h-5 w-5" />
                                     </button>
                                 </div>
 
                                 {/* Navigation Links */}
-                                <nav className="flex-1 space-y-2">
+                                <nav className="flex-1 space-y-1">
                                     {links.map((link, index) => (
                                         <motion.div
                                             key={link.href}
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{
-                                                delay: index * 0.05 + 0.1,
+                                                delay: index * 0.04 + 0.08,
                                             }}
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`block py-3 px-4 text-lg font-semibold rounded-lg transition-all duration-300 ${
+                                                className={`block py-2.5 px-4 text-base font-semibold rounded-lg transition-all duration-200 ${
                                                     location === link.href
                                                         ? "text-primary bg-primary/10 border-l-4 border-primary"
                                                         : "text-slate-300 hover:text-white hover:bg-white/5 hover:translate-x-1"
@@ -203,8 +203,8 @@ export function Navbar() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                    className="pt-6 border-t border-white/10"
+                                    transition={{ delay: 0.3 }}
+                                    className="pt-4 border-t border-white/10"
                                 >
                                     <Link
                                         href="/contact"

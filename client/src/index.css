@@ -86,31 +86,47 @@
     letter-spacing: -0.5px;
   }
 
-  /* Responsive Typography Scale */
+  /* Modern Responsive Typography Scale */
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
-    font-weight: 300;
+    @apply text-3xl sm:text-4xl md:text-5xl;
+    font-weight: 600;
+    line-height: 1.1;
   }
 
   h2 {
-    @apply text-3xl sm:text-4xl md:text-5xl;
-    font-weight: 400;
+    @apply text-2xl sm:text-3xl md:text-4xl;
+    font-weight: 600;
+    line-height: 1.2;
   }
 
   h3 {
-    @apply text-2xl sm:text-3xl md:text-4xl;
-    font-weight: 400;
+    @apply text-xl sm:text-2xl md:text-3xl;
+    font-weight: 600;
+    line-height: 1.3;
   }
 
   h4 {
-    @apply text-xl sm:text-2xl md:text-3xl;
-    font-weight: 500;
+    @apply text-lg sm:text-xl md:text-2xl;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h5 {
+    @apply text-base sm:text-lg md:text-xl;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h6 {
+    @apply text-sm sm:text-base md:text-lg;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   p {
-    @apply text-base sm:text-base md:text-base;
+    @apply text-sm sm:text-base;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Smooth Scrolling */
@@ -127,28 +143,54 @@
 
 @layer components {
 
+  /* Modern Typography Utilities */
+  .text-display-xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight;
+  }
+
+  .text-display-lg {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-tight;
+  }
+
+  .text-display-md {
+    @apply text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight;
+  }
+
+  .text-display-sm {
+    @apply text-lg sm:text-xl lg:text-2xl font-semibold;
+  }
+
+  .text-body-lg {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-xs sm:text-sm leading-relaxed;
+  }
+
   /* Reusable button component with responsive sizing */
   .btn {
     @apply inline-flex items-center justify-center rounded-md transition ease-in-out duration-200 focus-premium;
     font-size: 14px;
     font-weight: 500;
-    letter-spacing: -0.3px;
-    padding: 12px 24px;
+    letter-spacing: -0.01em;
+    padding: 10px 20px;
   }
 
   .btn-sm {
-    @apply px-3 py-2;
-    font-size: 13px;
+    @apply px-3 py-1.5 text-xs;
   }
 
   .btn-md {
-    @apply px-4 py-2.5;
-    font-size: 14px;
+    @apply px-4 py-2 text-sm;
   }
 
   .btn-lg {
-    @apply px-6 py-3;
-    font-size: 16px;
+    @apply px-5 py-2.5 text-base;
   }
 
   .btn-primary {
@@ -188,14 +230,14 @@
     @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
   }
 
-  /* Button hover and active states */
+  /* Button hover and active states - More subtle */
   .button-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98];
+    @apply transition-all duration-200 hover:scale-[1.01] hover:shadow-md active:scale-[0.99];
   }
 
   /* Touch-friendly button sizes */
   .button-mobile {
-    @apply min-h-11 px-3 sm:min-h-10 sm:px-4 md:min-h-12 md:px-6;
+    @apply min-h-10 px-4 sm:px-5;
   }
 
   /* Mobile button with full width option */
@@ -205,20 +247,20 @@
 
   /* Mobile-first responsive spacing */
   .responsive-gap {
-    @apply gap-3 sm:gap-4 md:gap-6;
+    @apply gap-3 sm:gap-4 lg:gap-6;
   }
 
   .responsive-py {
-    @apply py-4 sm:py-6 md:py-8;
+    @apply py-3 sm:py-4 lg:py-6;
   }
 
   .responsive-px {
-    @apply px-4 sm:px-6 md:px-8;
+    @apply px-4 sm:px-6 lg:px-8;
   }
 
   /* Touch target sizes for mobile */
   .touch-target {
-    @apply min-h-11 min-w-11 sm:min-h-10 sm:min-w-10;
+    @apply min-h-10 min-w-10;
   }
 
   /* Sophisticated Backgrounds */
@@ -243,29 +285,29 @@
     @apply mx-auto px-4 sm:px-6 md:px-8 lg:px-8 max-w-7xl;
   }
 
-  /* Section Spacing - More responsive */
+  /* Section Spacing - Optimized for readability */
   .section-padding {
-    @apply py-12 md:py-20;
+    @apply py-10 sm:py-16 lg:py-20;
   }
 
-  /* Animated Icon Container */
+  /* Animated Icon Container - More subtle */
   .icon-container {
-    @apply transition-all duration-500 ease-out;
-  }
-
-  .icon-container:hover {
-    animation: iconBounce 0.6s ease-out;
-    transform: scale(1.1);
-  }
-
-  /* Card Hover Effects */
-  .card-hover {
     @apply transition-all duration-300 ease-out;
   }
 
+  .icon-container:hover {
+    animation: iconBounce 0.5s ease-out;
+    transform: scale(1.05);
+  }
+
+  /* Card Hover Effects - More subtle and modern */
+  .card-hover {
+    @apply transition-all duration-200 ease-out;
+  }
+
   .card-hover:hover {
-    @apply scale-105;
-    box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+    @apply scale-[1.02];
+    box-shadow: 0 0 24px rgba(37, 99, 235, 0.2);
   }
 
   /* Button Ripple Effect */

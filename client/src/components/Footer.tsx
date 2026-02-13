@@ -45,10 +45,10 @@ export function Footer() {
                         viewport={{ once: true }}
                         className="max-w-4xl mx-auto text-center"
                     >
-                        <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 font-display">
+                        <h3 className="text-display-md text-white mb-4">
                             Stay Compliance Ready
                         </h3>
-                        <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                        <p className="text-body text-slate-400 mb-8 max-w-2xl mx-auto">
                             Get monthly insights on data protection regulations,
                             cybersecurity best practices, and NDPA updates.
                         </p>
@@ -63,11 +63,12 @@ export function Footer() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
-                                className="h-12 sm:h-14 bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary rounded-lg flex-1"
+                                className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus:border-primary focus:ring-primary rounded-lg flex-1"
                             />
                             <Button
                                 type="submit"
-                                className="rounded-lg button-hover shadow-lg shadow-primary/20 w-full sm:w-auto"
+                                size="default"
+                                className="rounded-lg button-hover shadow-sm shadow-primary/20 w-full sm:w-auto"
                             >
                                 Subscribe
                                 <Send className="ml-2 h-4 w-4" />
@@ -85,9 +86,9 @@ export function Footer() {
                         <img
                             src={logo}
                             alt="Cealed Logo"
-                            className="h-10 w-auto brightness-0 invert opacity-90"
+                            className="h-9 w-auto brightness-0 invert opacity-90"
                         />
-                        <p className="text-sm leading-relaxed text-slate-400 max-w-sm">
+                        <p className="text-body-sm text-slate-400 max-w-sm">
                             Your trusted partner for Data Protection, NDPA
                             Compliance, and Cybersecurity Governance across
                             Africa. Building digital trust, one policy at a
@@ -129,11 +130,11 @@ export function Footer() {
 
                     {/* Services - Spans 2 columns */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center">
+                        <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center">
                             <span className="h-px w-4 bg-primary mr-2"></span>
                             Services
                         </h4>
-                        <ul className="space-y-3 text-sm">
+                        <ul className="space-y-2.5 text-sm">
                             {[
                                 { label: "Data Protection", href: "/services" },
                                 { label: "NDPA Compliance", href: "/services" },
@@ -155,11 +156,11 @@ export function Footer() {
 
                     {/* Company - Spans 2 columns */}
                     <div className="lg:col-span-2">
-                        <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center">
+                        <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center">
                             <span className="h-px w-4 bg-primary mr-2"></span>
                             Company
                         </h4>
-                        <ul className="space-y-3 text-sm">
+                        <ul className="space-y-2.5 text-sm">
                             {[
                                 { label: "About Us", href: "/about" },
                                 { label: "Our Process", href: "/compliance" },
@@ -181,11 +182,11 @@ export function Footer() {
 
                     {/* Contact Info - Spans 4 columns */}
                     <div className="lg:col-span-4">
-                        <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 flex items-center">
+                        <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 flex items-center">
                             <span className="h-px w-4 bg-primary mr-2"></span>
                             Get in Touch
                         </h4>
-                        <ul className="space-y-4 text-sm">
+                        <ul className="space-y-3 text-sm">
                             <li className="flex items-start space-x-3 group">
                                 <MapPin className="h-5 w-5 shrink-0 text-primary mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                                 <span className="text-slate-400">

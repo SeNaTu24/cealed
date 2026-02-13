@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Download, CheckCircle2, Sparkles, Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import techFestImage from "@/assets/tchfst.jpg";
 
 export default function TechFest() {
     const [formData, setFormData] = useState({
@@ -70,7 +71,7 @@ export default function TechFest() {
                             <div className="relative group mb-8">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500"></div>
                                 <img
-                                    src="/src/assets/tchfst.jpg"
+                                    src={techFestImage}
                                     alt="Lagos Tech Fest"
                                     className="relative w-full h-auto rounded-2xl shadow-2xl border border-white/10"
                                 />

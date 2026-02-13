@@ -31,26 +31,50 @@ export default function Home() {
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="max-w-lg mt-8"
+                            className="max-w-2xl mt-8"
                         >
-                            <span className="inline-block px-3 py-1.5 mb-4 text-xs font-medium tracking-wider text-primary uppercase glass-panel rounded-full">
+                            <motion.span 
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-primary uppercase glass-panel rounded-full"
+                            >
                                 Trust • Security • Compliance
-                            </span>
+                            </motion.span>
 
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight font-display leading-tight mb-6">
-                                <span className="block text-white mb-2">Sealing compliance gaps,</span>
-                                <span className="block text-white">one African business at a time</span>
+                            <h1 className="mb-6">
+                                <motion.span 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.3 }}
+                                    className="block text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3"
+                                >
+                                    Sealing compliance gaps,
+                                </motion.span>
+                                <motion.span 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.4 }}
+                                    className="block text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-blue-50 to-primary bg-clip-text text-transparent leading-tight"
+                                >
+                                    one African business at a time
+                                </motion.span>
                             </h1>
 
-                            <p className="text-base md:text-lg leading-relaxed text-blue-100 max-w-xl mb-8">
+                            <motion.p 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.5 }}
+                                className="text-base sm:text-lg text-blue-100/90 max-w-xl mb-8 leading-relaxed"
+                            >
                                 Trusted advisory firm helping organizations
                                 across Africa comply with data protection laws,
                                 strengthen cybersecurity governance, and manage
                                 privacy risks in modern digital operations.
-                            </p>
+                            </motion.p>
 
                             {/* Key Points */}
-                            <div className="space-y-3 mb-6">
+                            <div className="space-y-2.5 mb-8">
                                 {[
                                     "NDPA & GDPR Compliance Expertise",
                                     "Financial Services & Fintech Focus",
@@ -61,25 +85,35 @@ export default function Home() {
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{
-                                            delay: 0.3 + index * 0.1,
+                                            delay: 0.6 + index * 0.1,
                                             duration: 0.5,
                                         }}
                                         className="flex items-center gap-3"
                                     >
-                                        <CheckCircle2 className="h-5 w-5 text-white shrink-0" />
-                                        <span className="text-sm md:text-base text-blue-100">
+                                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
+                                            <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
+                                        </div>
+                                        <span className="text-sm sm:text-base text-blue-50 font-medium">
                                             {point}
                                         </span>
                                     </motion.div>
                                 ))}
                             </div>
 
-                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.9 }}
+                                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
+                            >
                                 <Link
                                     href="/contact"
                                     className="w-full sm:w-auto"
                                 >
-                                    <Button className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-600 rounded-lg shadow-lg">
+                                    <Button 
+                                        size="lg"
+                                        className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-600 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                                    >
                                         Schedule Consultation
                                         <ArrowRight className="ml-2 h-4 w-4" />
                                     </Button>
@@ -89,13 +123,14 @@ export default function Home() {
                                     className="w-full sm:w-auto"
                                 >
                                     <Button
+                                        size="lg"
                                         variant="outline"
-                                        className="w-full sm:w-auto text-white border-white hover:bg-white/10 rounded-lg"
+                                        className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:border-white rounded-lg backdrop-blur-sm"
                                     >
                                         Our Services
                                     </Button>
                                 </Link>
-                            </div>
+                            </motion.div>
                         </motion.div>
 
                         {/* Right Side - Animated Lock Illustration */}
@@ -133,11 +168,11 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="text-center mb-8"
                     >
-                        <p className="text-xs md:text-sm uppercase tracking-widest text-slate-500 font-semibold">
+                        <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">
                             Regulatory Frameworks We Master
                         </p>
                     </motion.div>
-                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-24 opacity-60 hover:opacity-100 transition-opacity duration-700">
+                    <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-12 lg:gap-20 opacity-60 hover:opacity-100 transition-opacity duration-700">
                         {[
                             "NDPA",
                             "GDPR",
@@ -152,7 +187,7 @@ export default function Home() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="text-lg md:text-xl lg:text-2xl font-bold tracking-widest text-white font-display hover:text-primary transition-colors"
+                                className="text-base sm:text-lg lg:text-xl font-bold tracking-wider text-white font-display hover:text-primary transition-colors"
                             >
                                 {brand}
                             </motion.span>
@@ -240,14 +275,14 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <Card className="h-full p-6 md:p-8 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300 card-hover group">
-                                    <div className="mb-5 p-3 bg-primary/10 border border-primary/20 rounded-lg w-fit group-hover:scale-110 transition-transform duration-300 icon-container icon-pulse">
-                                        <service.icon className="h-7 w-7 text-primary" />
+                                <Card className="h-full p-6 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-200 card-hover group">
+                                    <div className="mb-4 p-2.5 bg-primary/10 border border-primary/20 rounded-lg w-fit group-hover:scale-105 transition-transform duration-200 icon-container">
+                                        <service.icon className="h-6 w-6 text-primary" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3 font-display group-hover:text-primary transition-colors">
+                                    <h3 className="text-display-sm text-white mb-3 group-hover:text-primary transition-colors">
                                         {service.title}
                                     </h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                                    <p className="text-body-sm text-slate-400 mb-4">
                                         {service.desc}
                                     </p>
                                     <ul className="space-y-2">
@@ -256,7 +291,7 @@ export default function Home() {
                                                 key={feature}
                                                 className="flex items-center gap-2 text-xs text-slate-500"
                                             >
-                                                <CheckCircle2 className="h-3 w-3 text-primary/60 shrink-0" />
+                                                <CheckCircle2 className="h-3.5 w-3.5 text-primary/60 shrink-0" />
                                                 {feature}
                                             </li>
                                         ))}
@@ -325,16 +360,16 @@ export default function Home() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="flex gap-4 p-5 glass-panel rounded-lg hover:bg-white/10 transition-all duration-300"
+                                        className="flex gap-4 p-4 glass-panel rounded-lg hover:bg-white/10 transition-all duration-200"
                                     >
-                                        <div className="shrink-0 p-3 bg-primary/10 border border-primary/20 rounded-lg h-fit">
-                                            <item.icon className="h-6 w-6 text-primary" />
+                                        <div className="shrink-0 p-2.5 bg-primary/10 border border-primary/20 rounded-lg h-fit">
+                                            <item.icon className="h-5 w-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="text-lg font-bold text-white mb-2">
+                                            <h4 className="text-display-sm text-white mb-2">
                                                 {item.title}
                                             </h4>
-                                            <p className="text-sm text-slate-400 leading-relaxed">
+                                            <p className="text-body-sm text-slate-400">
                                                 {item.desc}
                                             </p>
                                         </div>
@@ -378,14 +413,14 @@ export default function Home() {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                 >
-                                    <Card className="p-6 md:p-8 text-center bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300 card-hover">
-                                        <div className="icon-container icon-bounce inline-block mb-4">
-                                            <stat.icon className="h-8 w-8 text-primary" />
+                                    <Card className="p-6 text-center bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-200 card-hover">
+                                        <div className="icon-container inline-block mb-3">
+                                            <stat.icon className="h-7 w-7 text-primary" />
                                         </div>
-                                        <div className="text-3xl md:text-4xl font-bold text-white mb-2 font-display">
+                                        <div className="text-2xl sm:text-3xl font-bold text-white mb-1 font-display">
                                             {stat.value}
                                         </div>
-                                        <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider">
+                                        <div className="text-xs text-slate-400 uppercase tracking-wider">
                                             {stat.label}
                                         </div>
                                     </Card>
@@ -437,16 +472,16 @@ export default function Home() {
                                 className="relative"
                             >
                                 {index < 3 && (
-                                    <div className="hidden lg:block absolute top-12 -right-3 w-6 h-px bg-gradient-to-r from-primary to-transparent" />
+                                    <div className="hidden lg:block absolute top-8 -right-3 w-6 h-px bg-gradient-to-r from-primary to-transparent" />
                                 )}
-                                <div className="glass-panel p-6 rounded-lg hover:bg-white/10 transition-all duration-300 h-full">
-                                    <div className="text-5xl font-bold text-primary/20 mb-4 font-display">
+                                <div className="glass-panel p-5 rounded-lg hover:bg-white/10 transition-all duration-200 h-full">
+                                    <div className="text-4xl font-bold text-primary/20 mb-3 font-display">
                                         {item.step}
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3">
+                                    <h3 className="text-display-sm text-white mb-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-sm text-slate-400 leading-relaxed">
+                                    <p className="text-body-sm text-slate-400">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -485,10 +520,10 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="max-w-4xl mx-auto text-center"
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+                        <h2 className="text-display-lg text-white mb-6">
                             Ready to Seal Your Compliance?
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                        <p className="text-body-lg text-slate-400 mb-8 max-w-2xl mx-auto">
                             Schedule a consultation with our compliance experts
                             and discover how we can protect your organization.
                         </p>
