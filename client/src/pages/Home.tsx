@@ -33,48 +33,25 @@ export default function Home() {
                             transition={{ duration: 0.8 }}
                             className="max-w-2xl mt-8"
                         >
-                            <motion.span 
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-primary uppercase glass-panel rounded-full"
-                            >
+                            <span className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-primary uppercase glass-panel rounded-full">
                                 Trust • Security • Compliance
-                            </motion.span>
+                            </span>
 
-                            <h1 className="mb-6">
-                                <motion.span 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.3 }}
-                                    className="block text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3"
-                                >
-                                    Sealing compliance gaps,
-                                </motion.span>
-                                <motion.span 
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.4 }}
-                                    className="block text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-blue-50 to-primary bg-clip-text text-transparent leading-tight"
-                                >
-                                    one African business at a time
-                                </motion.span>
+                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
+                                Sealing compliance gaps,{" "}
+                                <span className="text-primary">one African business</span>{" "}
+                                at a time
                             </h1>
 
-                            <motion.p 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.5 }}
-                                className="text-base sm:text-lg text-blue-100/90 max-w-xl mb-8 leading-relaxed"
-                            >
+                            <p className="text-base sm:text-lg text-blue-100/90 max-w-xl mb-8 leading-relaxed">
                                 Trusted advisory firm helping organizations
                                 across Africa comply with data protection laws,
                                 strengthen cybersecurity governance, and manage
                                 privacy risks in modern digital operations.
-                            </motion.p>
+                            </p>
 
                             {/* Key Points */}
-                            <div className="space-y-2.5 mb-8">
+                            <div className="space-y-3 mb-8">
                                 {[
                                     "NDPA & GDPR Compliance Expertise",
                                     "Financial Services & Fintech Focus",
@@ -85,34 +62,26 @@ export default function Home() {
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{
-                                            delay: 0.6 + index * 0.1,
+                                            delay: 0.3 + index * 0.1,
                                             duration: 0.5,
                                         }}
                                         className="flex items-center gap-3"
                                     >
-                                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                                            <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
-                                        </div>
-                                        <span className="text-sm sm:text-base text-blue-50 font-medium">
+                                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                                        <span className="text-sm sm:text-base text-blue-100">
                                             {point}
                                         </span>
                                     </motion.div>
                                 ))}
                             </div>
 
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.9 }}
-                                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3"
-                            >
+                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                                 <Link
                                     href="/contact"
                                     className="w-full sm:w-auto"
                                 >
                                     <Button 
-                                        size="lg"
-                                        className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-600 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                                        className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-600 rounded-lg shadow-sm"
                                     >
                                         Schedule Consultation
                                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -123,14 +92,13 @@ export default function Home() {
                                     className="w-full sm:w-auto"
                                 >
                                     <Button
-                                        size="lg"
                                         variant="outline"
-                                        className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:border-white rounded-lg backdrop-blur-sm"
+                                        className="w-full sm:w-auto text-white border-white/30 hover:bg-white/10 hover:border-white rounded-lg"
                                     >
                                         Our Services
                                     </Button>
                                 </Link>
-                            </motion.div>
+                            </div>
                         </motion.div>
 
                         {/* Right Side - Animated Lock Illustration */}
