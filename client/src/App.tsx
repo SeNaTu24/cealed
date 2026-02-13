@@ -14,6 +14,7 @@ import Compliance from "@/pages/Compliance";
 import Industries from "@/pages/Industries";
 import Training from "@/pages/Training";
 import Contact from "@/pages/Contact";
+import TechFest from "@/pages/TechFest";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -40,6 +41,8 @@ function Router() {
           <Route path="/industries" component={Industries} />
           <Route path="/training" component={Training} />
           <Route path="/contact" component={Contact} />
+          <Route path="/techfest" component={TechFest} />
+          <Route path="/techfest-live-event-2026" component={TechFest} />
           <Route component={NotFound} />
         </Switch>
       </main>
