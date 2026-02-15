@@ -12,7 +12,7 @@ const links = [
     { href: "/compliance", label: "NDPA Audit" },
     { href: "/industries", label: "Industries" },
     { href: "/training", label: "Training & DPO" },
-    { href: "/techfest", label: "Tech Fest" },
+    { href: "/techfest-live-event-2026", label: "Tech Fest" },
 ];
 
 export function Navbar() {
