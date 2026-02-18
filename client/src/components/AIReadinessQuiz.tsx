@@ -27,7 +27,7 @@ interface FormData {
 }
 
 export function AIReadinessQuiz() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<FormData>({
     orgName: "",
     role: "",
@@ -137,7 +137,7 @@ export function AIReadinessQuiz() {
     };
 
     try {
-      await fetch("https://formsubmit.co/ajax/solusesi03@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/83d6604566d31d64b52e8124731600aa", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -147,14 +147,6 @@ export function AIReadinessQuiz() {
       });
       
       setSubmitted(true);
-      
-      // Auto-download brochure after submission
-      setTimeout(() => {
-        const link = document.createElement("a");
-        link.href = "/cealed-company-profile.pdf";
-        link.download = "Cealed-Company-Profile.pdf";
-        link.click();
-      }, 1000);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -177,10 +169,6 @@ export function AIReadinessQuiz() {
             <p className="text-sm text-slate-400 mt-2">Based on your AI usage, you need a Data Privacy Impact Assessment and AI Monitoring Program.</p>
           </div>
         )}
-        <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 mb-4">
-          <p className="text-primary font-semibold mb-2">🎁 Your E-brochure is downloading...</p>
-          <p className="text-sm text-slate-400">Check your downloads folder for Cealed's company profile</p>
-        </div>
         <p className="text-slate-500">We'll be in touch soon with your detailed assessment.</p>
       </Card>
     );
@@ -190,7 +178,7 @@ export function AIReadinessQuiz() {
     <Card className="p-6 md:p-8 bg-white/5 border-white/10 backdrop-blur-md">
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
-          <h3 className="text-xl font-bold text-white">Section {step} of 6</h3>
+          <h3 className="text-xl font-bold text-white">Section {step + 1} of 6</h3>
           <span className="text-sm text-slate-400">{Math.round((step / 6) * 100)}% Complete</span>
         </div>
         <div className="w-full bg-white/10 rounded-full h-2">
@@ -198,48 +186,143 @@ export function AIReadinessQuiz() {
         </div>
       </div>
 
-      {step === 1 && (
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-white mb-4">Organisational Context</h4>
+      {step === 0 && (
+        <div className="space-y-6">
+          <h4 className="text-xl font-semibold text-white mb-6">Organisational Context</h4>
           <div>
-            <label className="block text-sm text-white mb-2">Organisation Name *</label>
-            <input type="text" required value={formData.orgName} onChange={(e) => setFormData({ ...formData, orgName: e.target.value })} className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white" />
+            <label className="block text-sm font-medium text-white mb-2">Organisation Name *</label>
+            <input 
+              type="text" 
+              required 
+              value={formData.orgName} 
+              onChange={(e) => setFormData({ ...formData, orgName: e.target.value })} 
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+              placeholder="Enter your organisation name"
+            />
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Your Role *</label>
-            <div className="space-y-2">
-              {["Founder / Co-founder", "CTO / Head of Engineering", "Product / AI Lead", "Compliance / Risk", "Operations", "Other"].map((r) => (
-                <label key={r} className="flex items-center gap-2 text-white">
-                  <input type="radio" name="role" value={r} checked={formData.role === r} onChange={(e) => setFormData({ ...formData, role: e.target.value })} />
-                  {r}
-                </label>
-              ))}
-            </div>
+            <label className="block text-sm font-medium text-white mb-2">Your Role *</label>
+            <select
+              required
+              value={formData.role}
+              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            >
+              <option value="" className="bg-[#1e293b]">Select your role</option>
+              <option value="Founder / Co-founder" className="bg-[#1e293b]">Founder / Co-founder</option>
+              <option value="CTO / Head of Engineering" className="bg-[#1e293b]">CTO / Head of Engineering</option>
+              <option value="Product / AI Lead" className="bg-[#1e293b]">Product / AI Lead</option>
+              <option value="Compliance / Risk" className="bg-[#1e293b]">Compliance / Risk</option>
+              <option value="Operations" className="bg-[#1e293b]">Operations</option>
+              <option value="Other" className="bg-[#1e293b]">Other</option>
+            </select>
             {formData.role === "Other" && (
-              <input type="text" placeholder="Specify role" value={formData.roleOther} onChange={(e) => setFormData({ ...formData, roleOther: e.target.value })} className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white mt-2" />
+              <input 
+                type="text" 
+                placeholder="Specify your role" 
+                value={formData.roleOther} 
+                onChange={(e) => setFormData({ ...formData, roleOther: e.target.value })} 
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all mt-3" 
+              />
             )}
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Industry *</label>
-            <div className="space-y-2">
-              {["Fintech", "Health / Healthtech", "SaaS / Technology", "AI / Data Company", "Other"].map((i) => (
-                <label key={i} className="flex items-center gap-2 text-white">
-                  <input type="radio" name="industry" value={i} checked={formData.industry === i} onChange={(e) => setFormData({ ...formData, industry: e.target.value })} />
-                  {i}
+            <label className="block text-sm font-medium text-white mb-2">Industry *</label>
+            <select
+              required
+              value={formData.industry}
+              onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            >
+              <option value="" className="bg-[#1e293b]">Select your industry</option>
+              <option value="Fintech" className="bg-[#1e293b]">Fintech</option>
+              <option value="Health / Healthtech" className="bg-[#1e293b]">Health / Healthtech</option>
+              <option value="SaaS / Technology" className="bg-[#1e293b]">SaaS / Technology</option>
+              <option value="AI / Data Company" className="bg-[#1e293b]">AI / Data Company</option>
+              <option value="Other" className="bg-[#1e293b]">Other</option>
+            </select>
+            {formData.industry === "Other" && (
+              <input 
+                type="text" 
+                placeholder="Specify your industry" 
+                value={formData.industryOther} 
+                onChange={(e) => setFormData({ ...formData, industryOther: e.target.value })} 
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all mt-3" 
+              />
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-white mb-2">Company Stage *</label>
+            <select
+              required
+              value={formData.stage}
+              onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+            >
+              <option value="" className="bg-[#1e293b]">Select company stage</option>
+              <option value="Early stage" className="bg-[#1e293b]">Early stage</option>
+              <option value="Growth stage" className="bg-[#1e293b]">Growth stage</option>
+              <option value="Scaling" className="bg-[#1e293b]">Scaling</option>
+              <option value="Enterprise" className="bg-[#1e293b]">Enterprise</option>
+            </select>
+          </div>
+        </div>
+      )}
+
+      {step === 1 && (
+        <div className="space-y-6">
+          <h4 className="text-xl font-semibold text-white mb-6">AI Use & Deployment</h4>
+          <div>
+            <label className="block text-sm font-medium text-white mb-3">Does your organisation currently use AI? *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "production", label: "Yes — in production", points: "10 points" },
+                { value: "pilots", label: "Yes — in pilots / experimentation", points: "10 points" },
+                { value: "planned", label: "Planned", points: "5 points" },
+                { value: "no", label: "No", points: "1 point" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="aiUse" 
+                      value={option.value} 
+                      checked={formData.aiUse === option.value} 
+                      onChange={(e) => setFormData({ ...formData, aiUse: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
                 </label>
               ))}
             </div>
-            {formData.industry === "Other" && (
-              <input type="text" placeholder="Specify industry" value={formData.industryOther} onChange={(e) => setFormData({ ...formData, industryOther: e.target.value })} className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white mt-2" />
-            )}
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Company Stage *</label>
-            <div className="space-y-2">
-              {["Early stage", "Growth stage", "Scaling", "Enterprise"].map((s) => (
-                <label key={s} className="flex items-center gap-2 text-white">
-                  <input type="radio" name="stage" value={s} checked={formData.stage === s} onChange={(e) => setFormData({ ...formData, stage: e.target.value })} />
-                  {s}
+            <label className="block text-sm font-medium text-white mb-3">Where is AI currently applied? (Select all that apply)</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "customer", label: "Customer interaction (chatbots, support)" },
+                { value: "credit", label: "Credit, pricing, or eligibility decisions" },
+                { value: "health", label: "Health, risk, or impact assessments" },
+                { value: "internal", label: "Internal operations or analytics" },
+                { value: "thirdParty", label: "Third-party AI tools (e.g. SaaS platforms)" },
+              ].map((app) => (
+                <label key={app.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="checkbox" 
+                      value={app.value} 
+                      checked={formData.aiApplications.includes(app.value)} 
+                      onChange={(e) => {
+                        const apps = e.target.checked ? [...formData.aiApplications, app.value] : formData.aiApplications.filter((a) => a !== app.value);
+                        setFormData({ ...formData, aiApplications: apps });
+                      }} 
+                      className="w-4 h-4 text-primary rounded focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{app.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">10 points</span>
                 </label>
               ))}
             </div>
@@ -248,45 +331,75 @@ export function AIReadinessQuiz() {
       )}
 
       {step === 2 && (
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-white mb-4">AI Use & Deployment</h4>
+        <div className="space-y-6">
+          <h4 className="text-xl font-semibold text-white mb-6">Governance & Control</h4>
           <div>
-            <label className="block text-sm text-white mb-2">Does your organisation currently use AI? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiUse" value="production" checked={formData.aiUse === "production"} onChange={(e) => setFormData({ ...formData, aiUse: e.target.value })} />
-                Yes — in production (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiUse" value="pilots" checked={formData.aiUse === "pilots"} onChange={(e) => setFormData({ ...formData, aiUse: e.target.value })} />
-                Yes — in pilots / experimentation (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiUse" value="planned" checked={formData.aiUse === "planned"} onChange={(e) => setFormData({ ...formData, aiUse: e.target.value })} />
-                Planned (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiUse" value="no" checked={formData.aiUse === "no"} onChange={(e) => setFormData({ ...formData, aiUse: e.target.value })} />
-                No (1 point)
-              </label>
+            <label className="block text-sm font-medium text-white mb-3">Is there a defined owner for AI oversight? *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "yes", label: "Yes", points: "10 points" },
+                { value: "partially", label: "Partially", points: "5 points" },
+                { value: "no", label: "No", points: "1 point" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="aiOwner" 
+                      value={option.value} 
+                      checked={formData.aiOwner === option.value} 
+                      onChange={(e) => setFormData({ ...formData, aiOwner: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
+                </label>
+              ))}
             </div>
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Where is AI currently applied? (Select all)</label>
-            <div className="space-y-2">
+            <label className="block text-sm font-medium text-white mb-3">Do you have documented guidelines for AI systems? *</label>
+            <div className="space-y-2.5">
               {[
-                { value: "customer", label: "Customer interaction (chatbots, support)" },
-                { value: "credit", label: "Credit, pricing, or eligibility decisions" },
-                { value: "health", label: "Health, risk, or impact assessments" },
-                { value: "internal", label: "Internal operations or analytics" },
-                { value: "thirdParty", label: "Third-party AI tools (e.g. SaaS platforms)" },
-              ].map((app) => (
-                <label key={app.value} className="flex items-center gap-2 text-white">
-                  <input type="checkbox" value={app.value} checked={formData.aiApplications.includes(app.value)} onChange={(e) => {
-                    const apps = e.target.checked ? [...formData.aiApplications, app.value] : formData.aiApplications.filter((a) => a !== app.value);
-                    setFormData({ ...formData, aiApplications: apps });
-                  }} />
-                  {app.label} (10 points)
+                { value: "yes", label: "Yes", points: "10 points" },
+                { value: "inProgress", label: "In progress", points: "5 points" },
+                { value: "no", label: "No", points: "3 points" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="guidelines" 
+                      value={option.value} 
+                      checked={formData.guidelines === option.value} 
+                      onChange={(e) => setFormData({ ...formData, guidelines: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-white mb-3">How are risks like bias handled? *</label>
+            <div className="space-y-2.5">
+              {["Formal process", "Informal / ad-hoc", "Not addressed", "Unsure"].map((r) => (
+                <label key={r} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="riskHandling" 
+                      value={r} 
+                      checked={formData.riskHandling === r} 
+                      onChange={(e) => setFormData({ ...formData, riskHandling: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{r}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">10 points</span>
                 </label>
               ))}
             </div>
@@ -295,49 +408,82 @@ export function AIReadinessQuiz() {
       )}
 
       {step === 3 && (
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-white mb-4">Governance & Control</h4>
+        <div className="space-y-6">
+          <h4 className="text-xl font-semibold text-white mb-6">Data Privacy</h4>
           <div>
-            <label className="block text-sm text-white mb-2">Is there a defined owner for AI oversight? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiOwner" value="yes" checked={formData.aiOwner === "yes"} onChange={(e) => setFormData({ ...formData, aiOwner: e.target.value })} />
-                Yes (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiOwner" value="partially" checked={formData.aiOwner === "partially"} onChange={(e) => setFormData({ ...formData, aiOwner: e.target.value })} />
-                Partially (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="aiOwner" value="no" checked={formData.aiOwner === "no"} onChange={(e) => setFormData({ ...formData, aiOwner: e.target.value })} />
-                No (1 point)
-              </label>
+            <label className="block text-sm font-medium text-white mb-3">DCMI Registration & CAR Filing Status *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "registered", label: "Registered and filed", points: "10 points" },
+                { value: "registeredNotFiled", label: "Registered but not filed", points: "5 points" },
+                { value: "notRegistered", label: "Not registered", points: "0 points" },
+                { value: "unsure", label: "Unsure", points: "0 points" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="dcmiStatus" 
+                      value={option.value} 
+                      checked={formData.dcmiStatus === option.value} 
+                      onChange={(e) => setFormData({ ...formData, dcmiStatus: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
+                </label>
+              ))}
             </div>
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Do you have documented guidelines for AI systems? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="guidelines" value="yes" checked={formData.guidelines === "yes"} onChange={(e) => setFormData({ ...formData, guidelines: e.target.value })} />
-                Yes (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="guidelines" value="inProgress" checked={formData.guidelines === "inProgress"} onChange={(e) => setFormData({ ...formData, guidelines: e.target.value })} />
-                In progress (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="guidelines" value="no" checked={formData.guidelines === "no"} onChange={(e) => setFormData({ ...formData, guidelines: e.target.value })} />
-                No (3 points)
-              </label>
+            <label className="block text-sm font-medium text-white mb-3">Has your DPO submitted SADPR? *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "submitted", label: "Yes, formally submitted", points: "10 points" },
+                { value: "informal", label: "Submitted informally", points: "5 points" },
+                { value: "noDpo", label: "We have DPO but no SADPR", points: "2 points" },
+                { value: "noDpoAtAll", label: "No DPO", points: "0 points" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="sadprStatus" 
+                      value={option.value} 
+                      checked={formData.sadprStatus === option.value} 
+                      onChange={(e) => setFormData({ ...formData, sadprStatus: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
+                </label>
+              ))}
             </div>
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">How are risks like bias handled? *</label>
-            <div className="space-y-2">
-              {["Formal process", "Informal / ad-hoc", "Not addressed", "Unsure"].map((r) => (
-                <label key={r} className="flex items-center gap-2 text-white">
-                  <input type="radio" name="riskHandling" value={r} checked={formData.riskHandling === r} onChange={(e) => setFormData({ ...formData, riskHandling: e.target.value })} />
-                  {r} (10 points)
+            <label className="block text-sm font-medium text-white mb-3">Have you conducted DPIAs? *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "before", label: "Yes, before deployment", points: "10 points" },
+                { value: "after", label: "Yes, after deployment", points: "5 points" },
+                { value: "no", label: "No", points: "0 points" },
+                { value: "unsure", label: "Unsure", points: "0 points" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="dpiaStatus" 
+                      value={option.value} 
+                      checked={formData.dpiaStatus === option.value} 
+                      onChange={(e) => setFormData({ ...formData, dpiaStatus: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
                 </label>
               ))}
             </div>
@@ -346,167 +492,148 @@ export function AIReadinessQuiz() {
       )}
 
       {step === 4 && (
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-white mb-4">Data Privacy</h4>
+        <div className="space-y-6">
+          <h4 className="text-xl font-semibold text-white mb-6">Readiness & Future Pressure</h4>
           <div>
-            <label className="block text-sm text-white mb-2">DCMI Registration & CAR Filing Status *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dcmiStatus" value="registered" checked={formData.dcmiStatus === "registered"} onChange={(e) => setFormData({ ...formData, dcmiStatus: e.target.value })} />
-                Registered and filed (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dcmiStatus" value="registeredNotFiled" checked={formData.dcmiStatus === "registeredNotFiled"} onChange={(e) => setFormData({ ...formData, dcmiStatus: e.target.value })} />
-                Registered but not filed (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dcmiStatus" value="notRegistered" checked={formData.dcmiStatus === "notRegistered"} onChange={(e) => setFormData({ ...formData, dcmiStatus: e.target.value })} />
-                Not registered (0 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dcmiStatus" value="unsure" checked={formData.dcmiStatus === "unsure"} onChange={(e) => setFormData({ ...formData, dcmiStatus: e.target.value })} />
-                Unsure (0 points)
-              </label>
+            <label className="block text-sm font-medium text-white mb-3">Have customers/regulators asked about AI governance? *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "yes", label: "Yes", points: "1 point" },
+                { value: "notYet", label: "Not yet", points: "10 points" },
+                { value: "expecting", label: "Expecting soon", points: "5 points" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="externalPressure" 
+                      value={option.value} 
+                      checked={formData.externalPressure === option.value} 
+                      onChange={(e) => setFormData({ ...formData, externalPressure: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
+                </label>
+              ))}
             </div>
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Has your DPO submitted SADPR? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="sadprStatus" value="submitted" checked={formData.sadprStatus === "submitted"} onChange={(e) => setFormData({ ...formData, sadprStatus: e.target.value })} />
-                Yes, formally submitted (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="sadprStatus" value="informal" checked={formData.sadprStatus === "informal"} onChange={(e) => setFormData({ ...formData, sadprStatus: e.target.value })} />
-                Submitted informally (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="sadprStatus" value="noDpo" checked={formData.sadprStatus === "noDpo"} onChange={(e) => setFormData({ ...formData, sadprStatus: e.target.value })} />
-                We have DPO but no SADPR (2 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="sadprStatus" value="noDpoAtAll" checked={formData.sadprStatus === "noDpoAtAll"} onChange={(e) => setFormData({ ...formData, sadprStatus: e.target.value })} />
-                No DPO (0 points)
-              </label>
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm text-white mb-2">Have you conducted DPIAs? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dpiaStatus" value="before" checked={formData.dpiaStatus === "before"} onChange={(e) => setFormData({ ...formData, dpiaStatus: e.target.value })} />
-                Yes, before deployment (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dpiaStatus" value="after" checked={formData.dpiaStatus === "after"} onChange={(e) => setFormData({ ...formData, dpiaStatus: e.target.value })} />
-                Yes, after deployment (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dpiaStatus" value="no" checked={formData.dpiaStatus === "no"} onChange={(e) => setFormData({ ...formData, dpiaStatus: e.target.value })} />
-                No (0 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="dpiaStatus" value="unsure" checked={formData.dpiaStatus === "unsure"} onChange={(e) => setFormData({ ...formData, dpiaStatus: e.target.value })} />
-                Unsure (0 points)
-              </label>
+            <label className="block text-sm font-medium text-white mb-3">How confident explaining your AI governance? *</label>
+            <div className="space-y-2.5">
+              {[
+                { value: "very", label: "Very confident", points: "10 points" },
+                { value: "somewhat", label: "Somewhat confident", points: "5 points" },
+                { value: "not", label: "Not confident", points: "3 points" },
+                { value: "unsure", label: "Unsure", points: "3 points" }
+              ].map((option) => (
+                <label key={option.value} className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <div className="flex items-center gap-3">
+                    <input 
+                      type="radio" 
+                      name="confidence" 
+                      value={option.value} 
+                      checked={formData.confidence === option.value} 
+                      onChange={(e) => setFormData({ ...formData, confidence: e.target.value })} 
+                      className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                    />
+                    <span className="text-white group-hover:text-primary transition-colors">{option.label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">{option.points}</span>
+                </label>
+              ))}
             </div>
           </div>
         </div>
       )}
 
       {step === 5 && (
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-white mb-4">Readiness & Future Pressure</h4>
+        <div className="space-y-6">
+          <h4 className="text-xl font-semibold text-white mb-6">Next Steps</h4>
           <div>
-            <label className="block text-sm text-white mb-2">Have customers/regulators asked about AI governance? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="externalPressure" value="yes" checked={formData.externalPressure === "yes"} onChange={(e) => setFormData({ ...formData, externalPressure: e.target.value })} />
-                Yes (1 point)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="externalPressure" value="notYet" checked={formData.externalPressure === "notYet"} onChange={(e) => setFormData({ ...formData, externalPressure: e.target.value })} />
-                Not yet (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="externalPressure" value="expecting" checked={formData.externalPressure === "expecting"} onChange={(e) => setFormData({ ...formData, externalPressure: e.target.value })} />
-                Expecting soon (5 points)
-              </label>
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm text-white mb-2">How confident explaining your AI governance? *</label>
-            <div className="space-y-2">
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="confidence" value="very" checked={formData.confidence === "very"} onChange={(e) => setFormData({ ...formData, confidence: e.target.value })} />
-                Very confident (10 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="confidence" value="somewhat" checked={formData.confidence === "somewhat"} onChange={(e) => setFormData({ ...formData, confidence: e.target.value })} />
-                Somewhat confident (5 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="confidence" value="not" checked={formData.confidence === "not"} onChange={(e) => setFormData({ ...formData, confidence: e.target.value })} />
-                Not confident (3 points)
-              </label>
-              <label className="flex items-center gap-2 text-white">
-                <input type="radio" name="confidence" value="unsure" checked={formData.confidence === "unsure"} onChange={(e) => setFormData({ ...formData, confidence: e.target.value })} />
-                Unsure (3 points)
-              </label>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {step === 6 && (
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold text-white mb-4">Next Steps</h4>
-          <div>
-            <label className="block text-sm text-white mb-2">Want a complimentary readiness review? *</label>
-            <div className="space-y-2">
+            <label className="block text-sm font-medium text-white mb-3">Want a complimentary readiness review? *</label>
+            <div className="space-y-2.5">
               {["Yes", "Maybe—I would like more clarity", "Not at this time"].map((w) => (
-                <label key={w} className="flex items-center gap-2 text-white">
-                  <input type="radio" name="wantReview" value={w} checked={formData.wantReview === w} onChange={(e) => setFormData({ ...formData, wantReview: e.target.value })} />
-                  {w}
+                <label key={w} className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <input 
+                    type="radio" 
+                    name="wantReview" 
+                    value={w} 
+                    checked={formData.wantReview === w} 
+                    onChange={(e) => setFormData({ ...formData, wantReview: e.target.value })} 
+                    className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                  />
+                  <span className="text-white group-hover:text-primary transition-colors">{w}</span>
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Preferred follow-up method *</label>
-            <div className="space-y-2">
+            <label className="block text-sm font-medium text-white mb-3">Preferred follow-up method *</label>
+            <div className="space-y-2.5">
               {["Email", "Phone / WhatsApp", "Meeting"].map((f) => (
-                <label key={f} className="flex items-center gap-2 text-white">
-                  <input type="radio" name="followUp" value={f} checked={formData.followUp === f} onChange={(e) => setFormData({ ...formData, followUp: e.target.value })} />
-                  {f}
+                <label key={f} className="flex items-center gap-3 p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 hover:border-primary/40 cursor-pointer transition-all group">
+                  <input 
+                    type="radio" 
+                    name="followUp" 
+                    value={f} 
+                    checked={formData.followUp === f} 
+                    onChange={(e) => setFormData({ ...formData, followUp: e.target.value })} 
+                    className="w-4 h-4 text-primary focus:ring-primary focus:ring-2"
+                  />
+                  <span className="text-white group-hover:text-primary transition-colors">{f}</span>
                 </label>
               ))}
             </div>
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Email *</label>
-            <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white" />
+            <label className="block text-sm font-medium text-white mb-2">Email *</label>
+            <input 
+              type="email" 
+              required 
+              value={formData.email} 
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+              placeholder="your@email.com"
+            />
           </div>
           <div>
-            <label className="block text-sm text-white mb-2">Phone</label>
-            <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white" />
+            <label className="block text-sm font-medium text-white mb-2">Phone (Optional)</label>
+            <input 
+              type="tel" 
+              value={formData.phone} 
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+              placeholder="+234 xxx xxx xxxx"
+            />
           </div>
         </div>
       )}
 
-      <div className="flex gap-3 mt-6">
-        {step > 1 && (
-          <Button variant="outline" onClick={() => setStep(step - 1)} className="text-white border-white/20">
+      <div className="flex gap-3 mt-8 pt-6 border-t border-white/10">
+        {step > 0 && (
+          <Button 
+            variant="outline" 
+            onClick={() => setStep(step - 1)} 
+            className="text-white border-white/20 hover:bg-white/10 hover:border-white/40 transition-all"
+          >
             Previous
           </Button>
         )}
-        {step < 6 ? (
-          <Button onClick={() => setStep(step + 1)} className="ml-auto bg-primary">
-            Next
+        {step < 5 ? (
+          <Button 
+            onClick={() => setStep(step + 1)} 
+            className="ml-auto bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+          >
+            Next Section
           </Button>
         ) : (
-          <Button onClick={handleSubmit} className="ml-auto bg-primary">
-            Submit
+          <Button 
+            onClick={handleSubmit} 
+            className="ml-auto bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+          >
+            Complete Assessment
           </Button>
         )}
       </div>

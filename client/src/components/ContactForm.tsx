@@ -35,7 +35,7 @@ export function ContactForm() {
         setIsSubmitting(true);
         
         try {
-            const response = await fetch('https://formsubmit.co/ajax/e.olusesi@mustarred.com', {
+            const response = await fetch('https://formsubmit.co/ajax/83d6604566d31d64b52e8124731600aa', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
