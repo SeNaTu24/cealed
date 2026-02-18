@@ -1,0 +1,83 @@
+[33mcommit 90b6ec94a044db9f48dc86d3a6fa5fe3dc9b00be[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 15 13:01:36 2026 +0100
+
+    Fixed all responiveness Issues across codebase
+
+[33mcommit 8c64a71d2910da50d4659005a126176e9981d08a[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 15 10:52:16 2026 +0100
+
+    Add vercel.json for SPA routing
+
+[33mcommit 819b4b6a05d1119c384c5f555a9c927c7659e7c1[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 15 10:42:46 2026 +0100
+
+    Change Tech Fest URL to /techfest-live-event-2026 for SEO
+
+[33mcommit 6b7f5bbed5b8af656046152d33782f6c7733b587[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Fri Feb 13 10:48:01 2026 +0100
+
+    Update changes
+
+[33mcommit b4ee6a56309e8906617e664ddd18fca154018e78[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Fri Feb 13 10:40:41 2026 +0100
+
+    Fix TechFest image import path
+
+[33mcommit 7f5ee93e679ff4b63367877f61ef8423a6ec0e59[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Fri Feb 13 10:03:45 2026 +0100
+
+    Update TechFest page: Change button text to 'Download Cealed's E-brochure'
+
+[33mcommit 263c9c2a8cae2c2cebb6f66c0ce50649f52196d0[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Tue Feb 10 07:37:19 2026 +0100
+
+    Remove feature limit indicator, show all features
+
+[33mcommit 92e253dcad2430ec2c6ffadaac93e6a7ee3f8b9d[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Tue Feb 10 07:31:58 2026 +0100
+
+    Add AI Governance services with tabbed category layout
+
+[33mcommit 694598c751a5cb40d1439cca7a14ecbb478267ff[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Mon Feb 9 21:00:45 2026 +0100
+
+    Add sitemap, robots.txt, and Google Search Console verification
+
+[33mcommit dd5a3fe33acb9eab5a581a3ced36bf86c1b7cdaf[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Mon Feb 2 10:34:06 2026 +0100
+
+    Updated Background colors and font sizes across all pages
+
+[33mcommit eb98669cd554aaf14d0678ae8ce86cf82b7417c6[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 1 15:17:04 2026 +0100
+
+    Adjust navbar: smaller hamburger icons, bigger logo on mobile
+
+[33mcommit 2937e9d62ed958ebfe26d45a848c993f3aa6213f[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 1 15:09:24 2026 +0100
+
+    Fix hamburger menu: X button now clickable to close menu
+
+[33mcommit 6170e94e16d8316ef7e062dd24aed290e3f5db53[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 1 14:56:15 2026 +0100
+
+    Clean up and removed unused files
+
+[33mcommit 39c38148af9284ea00da58cc18af579c567c13ba[m
+Author: Olusesi Samuel <solusesi03@gmail.com>
+Date:   Sun Feb 1 14:49:40 2026 +0100
+
+    Initial commit: Cealed compliance website with updated content from proposal

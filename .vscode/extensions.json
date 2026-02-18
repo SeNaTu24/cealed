@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "kombai.kombai",
+        "amazonwebservices.aws-toolkit-vscode",
+        "amazonwebservices.amazon-q-vscode"
+    ]
+}

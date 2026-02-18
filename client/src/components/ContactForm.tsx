@@ -35,21 +35,26 @@ export function ContactForm() {
         setIsSubmitting(true);
         
         try {
-            const formData = new FormData();
-            formData.append('name', data.name);
-            formData.append('email', data.email);
-            formData.append('company', data.company || '');
-            formData.append('subject', data.subject);
-            formData.append('message', data.message);
-            formData.append('_next', window.location.origin + '/contact');
-            formData.append('_subject', `New Contact Form Submission: ${data.subject}`);
-            
-            const response = await fetch('https://formsubmit.co/e.olusesi@mustarred.com', {
+            const response = await fetch('https://formsubmit.co/ajax/e.olusesi@mustarred.com', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    company: data.company || '',
+                    subject: data.subject,
+                    message: data.message,
+                    _subject: `New Contact Form Submission: ${data.subject}`,
+                    _captcha: 'false'
+                })
             });
             
-            if (response.ok) {
+            const result = await response.json();
+            
+            if (result.success) {
                 toast({
                     title: "Message Sent",
                     description: "We have received your message and will contact you shortly.",
