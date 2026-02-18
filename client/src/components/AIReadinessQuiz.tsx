@@ -134,10 +134,12 @@ export function AIReadinessQuiz() {
       scoreLevel: scoreInfo.level,
       needsDPIA: needsDPIA() ? "Yes" : "No",
       _subject: "AI Readiness Check - Tech Fest 2026",
+      _captcha: "false",
+      _autoresponse: "Thank you for completing the AI Readiness Assessment! We're analyzing your responses and will send your personalized readiness report within 24 hours."
     };
 
     try {
-      await fetch("https://formsubmit.co/ajax/83d6604566d31d64b52e8124731600aa", {
+      await fetch("https://formsubmit.co/ajax/solusesi03@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

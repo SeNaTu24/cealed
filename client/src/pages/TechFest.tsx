@@ -23,7 +23,7 @@ export default function TechFest() {
         e.preventDefault();
 
         try {
-            const response = await fetch("https://formsubmit.co/ajax/83d6604566d31d64b52e8124731600aa", {
+            const response = await fetch("https://formsubmit.co/ajax/solusesi03@gmail.com", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -34,7 +34,8 @@ export default function TechFest() {
                     email: formData.email,
                     service: formData.service,
                     _subject: "Lagos Tech Fest 2026 - Brochure Download",
-                    _captcha: "false"
+                    _captcha: "false",
+                    _autoresponse: "Thank you for your interest in Cealed! Your brochure download should start automatically. We look forward to connecting at Lagos Tech Fest 2026."
                 })
             });
 

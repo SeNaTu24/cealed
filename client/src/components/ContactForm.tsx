@@ -35,7 +35,7 @@ export function ContactForm() {
         setIsSubmitting(true);
         
         try {
-            const response = await fetch('https://formsubmit.co/ajax/83d6604566d31d64b52e8124731600aa', {
+            const response = await fetch('https://formsubmit.co/ajax/solusesi03@gmail.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +48,8 @@ export function ContactForm() {
                     subject: data.subject,
                     message: data.message,
                     _subject: `New Contact Form Submission: ${data.subject}`,
-                    _captcha: 'false'
+                    _captcha: 'false',
+                    _autoresponse: "Thank you for reaching out to Cealed Compliance Hub. We've received your message and our team will respond within 24 hours."
                 })
             });
             
