@@ -234,7 +234,7 @@ export function Footer() {
                                 Privacy Policy
                             </Link>
                             <Link
-                                href="#"
+                                href="/terms"
                                 className="hover:text-white transition-colors duration-300"
                             >
                                 Terms of Service

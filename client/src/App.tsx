@@ -16,6 +16,7 @@ import Training from "@/pages/Training";
 import Contact from "@/pages/Contact";
 import TechFest from "@/pages/TechFest";
 import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -45,6 +46,7 @@ function Router() {
           <Route path="/techfest" component={TechFest} />
           <Route path="/techfest-live-event-2026" component={TechFest} />
           <Route path="/privacy" component={Privacy} />
+          <Route path="/terms" component={Terms} />
           <Route component={NotFound} />
         </Switch>
       </main>
