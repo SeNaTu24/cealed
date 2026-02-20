@@ -1,4 +1,22 @@
 export default function Privacy() {
+    const sections = [
+        { id: "introduction", title: "Introduction" },
+        { id: "how-we-collect", title: "How We Collect Personal Data" },
+        { id: "your-rights", title: "Your Rights" },
+        { id: "information-we-collect", title: "The Information we Collect" },
+        { id: "data-usage", title: "Data Usage" },
+        { id: "data-minimization", title: "Data Minimization" },
+        { id: "consent", title: "Your Consent" },
+        { id: "cookies", title: "Cookies" },
+        { id: "employee-obligations", title: "Employee Confidentiality" },
+        { id: "data-transfer", title: "Transfer of Personal Data" },
+        { id: "third-party", title: "Third-Party Links" },
+        { id: "data-retention", title: "Data Retention" },
+        { id: "data-protection", title: "How We Protect Your Data" },
+        { id: "updates", title: "Updates to This Notice" },
+        { id: "contact", title: "Complaints and Contact" },
+    ];
+
     return (
         <div className="min-h-screen bg-background">
             <section className="pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
@@ -7,8 +25,24 @@ export default function Privacy() {
                         Privacy Notice
                     </h1>
 
+                    {/* Table of Contents */}
+                    <div className="glass-panel rounded-lg p-4 sm:p-6 mb-8">
+                        <h2 className="text-lg font-semibold text-white mb-4">Contents</h2>
+                        <nav className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {sections.map((section) => (
+                                <a
+                                    key={section.id}
+                                    href={`#${section.id}`}
+                                    className="text-sm text-slate-300 hover:text-primary transition-colors"
+                                >
+                                    → {section.title}
+                                </a>
+                            ))}
+                        </nav>
+                    </div>
+
                     <div className="max-w-none space-y-8 text-slate-300">
-                        <section>
+                        <section id="introduction">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Introduction
                             </h2>
@@ -28,7 +62,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="how-we-collect">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 How We Collect Personal Data
                             </h2>
@@ -106,7 +140,7 @@ export default function Privacy() {
                             </ul>
                         </section>
 
-                        <section>
+                        <section id="your-rights">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Your Rights
                             </h2>
@@ -159,100 +193,83 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="information-we-collect">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 The Information we Collect
                             </h2>
-                            <div className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0">
-                                <table className="w-full border-collapse border border-slate-700 text-xs sm:text-sm min-w-[560px]">
-                                    <thead>
-                                        <tr className="bg-slate-800">
-                                            <th className="border border-slate-700 p-2 sm:p-3 text-left font-semibold text-white">
-                                                Information We Collect
-                                            </th>
-                                            <th className="border border-slate-700 p-2 sm:p-3 text-left font-semibold text-white">
-                                                How We Use It
-                                            </th>
-                                            <th className="border border-slate-700 p-2 sm:p-3 text-left font-semibold text-white">
-                                                Lawful Basis
-                                            </th>
-                                            <th className="border border-slate-700 p-2 sm:p-3 text-left font-semibold text-white">
-                                                Who We Share With
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {[
-                                            {
-                                                info: "Contact and Identification Information – name, email, phone, job title, organisation, NIN",
-                                                use: "Communicate; Respond to enquiries; Provide services; Manage relationships",
-                                                basis: "Contract; Legitimate interest",
-                                                share: "Not Shared",
-                                            },
-                                            {
-                                                info: "Engagement and Correspondence Information – emails, proposals, meeting notes, feedback",
-                                                use: "Assess requests; Deliver services; Maintain records; Improve offerings",
-                                                basis: "Contract; Legitimate interest",
-                                                share: "Not Shared",
-                                            },
-                                            {
-                                                info: "Due Diligence Information – beneficial owners, controllers, key personnel data",
-                                                use: "Business acceptance checks; Comply with obligations",
-                                                basis: "Legal obligation; Legitimate interest",
-                                                share: "Not Shared",
-                                            },
-                                            {
-                                                info: "Website and Technical Information – IP address, server logs, browser data",
-                                                use: "Operate and secure website; Prevent fraud",
-                                                basis: "Legitimate interest",
-                                                share: "Not Shared",
-                                            },
-                                            {
-                                                info: "Subscription Information – name, email, preferences",
-                                                use: "Send newsletters and updates",
-                                                basis: "Consent",
-                                                share: "Newsletter platforms",
-                                            },
-                                            {
-                                                info: "Event and Webinar Information – name, email, registration details",
-                                                use: "Share event info; Manage participation",
-                                                basis: "Consent",
-                                                share: "Event hosting platforms",
-                                            },
-                                            {
-                                                info: "Recruitment Information – CVs, applications, interview notes",
-                                                use: "Assess candidates; Manage recruitment",
-                                                basis: "Legitimate interest; Contract; Consent; Legal obligation",
-                                                share: "Background check providers",
-                                            },
-                                            {
-                                                info: "Regulatory and Compliance Information",
-                                                use: "Comply with laws and standards",
-                                                basis: "Legal obligation",
-                                                share: "Regulators",
-                                            },
-                                        ].map((row, idx) => (
-                                            <tr key={idx} className={idx % 2 === 0 ? "bg-slate-900/40" : ""}>
-                                                <td className="border border-slate-700 p-2 sm:p-3 align-top leading-relaxed">
-                                                    {row.info}
-                                                </td>
-                                                <td className="border border-slate-700 p-2 sm:p-3 align-top leading-relaxed">
-                                                    {row.use}
-                                                </td>
-                                                <td className="border border-slate-700 p-2 sm:p-3 align-top leading-relaxed">
-                                                    {row.basis}
-                                                </td>
-                                                <td className="border border-slate-700 p-2 sm:p-3 align-top leading-relaxed">
-                                                    {row.share}
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                            <div className="space-y-4">
+                                {[
+                                    {
+                                        info: "Contact and Identification Information",
+                                        details: "name, email, phone, job title, organisation, NIN",
+                                        use: "Communicate; Respond to enquiries; Provide services; Manage relationships",
+                                        basis: "Contract; Legitimate interest",
+                                        share: "Not Shared",
+                                    },
+                                    {
+                                        info: "Engagement and Correspondence Information",
+                                        details: "emails, proposals, meeting notes, feedback",
+                                        use: "Assess requests; Deliver services; Maintain records; Improve offerings",
+                                        basis: "Contract; Legitimate interest",
+                                        share: "Not Shared",
+                                    },
+                                    {
+                                        info: "Due Diligence Information",
+                                        details: "beneficial owners, controllers, key personnel data",
+                                        use: "Business acceptance checks; Comply with obligations",
+                                        basis: "Legal obligation; Legitimate interest",
+                                        share: "Not Shared",
+                                    },
+                                    {
+                                        info: "Website and Technical Information",
+                                        details: "IP address, server logs, browser data",
+                                        use: "Operate and secure website; Prevent fraud",
+                                        basis: "Legitimate interest",
+                                        share: "Not Shared",
+                                    },
+                                    {
+                                        info: "Subscription Information",
+                                        details: "name, email, preferences",
+                                        use: "Send newsletters and updates",
+                                        basis: "Consent",
+                                        share: "Newsletter platforms",
+                                    },
+                                    {
+                                        info: "Event and Webinar Information",
+                                        details: "name, email, registration details",
+                                        use: "Share event info; Manage participation",
+                                        basis: "Consent",
+                                        share: "Event hosting platforms",
+                                    },
+                                    {
+                                        info: "Recruitment Information",
+                                        details: "CVs, applications, interview notes",
+                                        use: "Assess candidates; Manage recruitment",
+                                        basis: "Legitimate interest; Contract; Consent; Legal obligation",
+                                        share: "Background check providers",
+                                    },
+                                    {
+                                        info: "Regulatory and Compliance Information",
+                                        details: "",
+                                        use: "Comply with laws and standards",
+                                        basis: "Legal obligation",
+                                        share: "Regulators",
+                                    },
+                                ].map((row, idx) => (
+                                    <div key={idx} className="glass-panel rounded-lg p-4">
+                                        <h4 className="text-white font-semibold mb-2">{row.info}</h4>
+                                        {row.details && <p className="text-xs text-slate-400 mb-3">{row.details}</p>}
+                                        <div className="space-y-2 text-sm">
+                                            <p><span className="text-white font-medium">Use:</span> {row.use}</p>
+                                            <p><span className="text-white font-medium">Basis:</span> {row.basis}</p>
+                                            <p><span className="text-white font-medium">Shared with:</span> {row.share}</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </section>
 
-                        <section>
+                        <section id="data-usage">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 We only use your data for the cause we tell you. No hidden agenda.
                             </h2>
@@ -264,7 +281,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="data-minimization">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 We only collect, use and/or store what is necessary
                             </h2>
@@ -279,7 +296,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="consent">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Your Consent is always yours to retract.
                             </h2>
@@ -300,7 +317,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="cookies">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Cookies
                             </h2>
@@ -315,7 +332,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="employee-obligations">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Employee Confidentiality Obligations
                             </h2>
@@ -338,7 +355,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="data-transfer">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Transfer of Personal Data
                             </h2>
@@ -371,7 +388,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="third-party">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Third-Party Links
                             </h2>
@@ -389,7 +406,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="data-retention">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Data Retention
                             </h2>
@@ -404,7 +421,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="data-protection">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 How We Protect Your Personal Data
                             </h2>
@@ -431,7 +448,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="updates">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Updates to This Privacy Notice
                             </h2>
@@ -447,7 +464,7 @@ export default function Privacy() {
                             </p>
                         </section>
 
-                        <section>
+                        <section id="contact">
                             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
                                 Complaints and Contact
                             </h2>
@@ -467,8 +484,7 @@ export default function Privacy() {
                                     </a>
                                 </p>
                                 <p className="text-sm sm:text-base">
-                                    <strong className="text-white">Business Address:</strong> No 6, Okun Street,
-                                    Gbagada, Lagos, Nigeria.
+                                    <strong className="text-white">Business Address:</strong> Plot 9a, Femi Ogun street, Magodo, Lagos, Nigeria.
                                 </p>
                             </div>
                             <p className="text-sm sm:text-base leading-relaxed mt-4">
