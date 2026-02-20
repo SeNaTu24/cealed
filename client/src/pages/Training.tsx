@@ -168,10 +168,10 @@ export default function Training() {
                         viewport={{ once: true }}
                         className="text-center mb-12 md:mb-16"
                     >
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 font-display">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 font-display">
                             Why Choose Our Training?
                         </h2>
-                        <p className="text-base md:text-lg text-white max-w-2xl mx-auto">
+                        <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
                             Practical, engaging, and tailored to your
                             organization's specific needs and compliance
                             requirements.

@@ -228,7 +228,7 @@ export function Footer() {
                         </p>
                         <div className="flex flex-wrap justify-center gap-6">
                             <Link
-                                href="#"
+                                href="/privacy"
                                 className="hover:text-white transition-colors duration-300"
                             >
                                 Privacy Policy

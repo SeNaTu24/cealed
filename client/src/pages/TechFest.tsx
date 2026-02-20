@@ -59,7 +59,7 @@ export default function TechFest() {
         <div className="min-h-screen bg-[#1e293b] overflow-x-hidden">
             {/* Hero Section */}
             <section className="relative pt-20 sm:pt-32 pb-10 sm:pb-20 overflow-hidden">
-                <div className="mx-auto px-2 sm:px-6 md:px-8 lg:px-8 max-w-7xl relative z-10">
+                    <div className="mx-auto px-4 sm:px-6 md:px-8 lg:px-8 max-w-7xl relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
