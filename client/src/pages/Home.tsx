@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/SectionHeader";
 import { AnimatedLock } from "@/components/AnimatedLock";
+import { AIReadinessQuiz } from "@/components/AIReadinessQuiz";
 import {
     Shield,
     FileCheck,
@@ -16,14 +17,66 @@ import {
     Target,
     Briefcase,
     Award,
+    Brain,
+    Sparkles,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useState } from "react";
 
 export default function Home() {
+    const [showQuiz, setShowQuiz] = useState(false);
+    const [showBanner, setShowBanner] = useState(true);
+
     return (
         <div className="flex flex-col min-h-screen">
-            {/* Hero Section with Animated Lock */}
-            <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a] px-4 sm:px-6 pt-20">
+            {/* AI Readiness Top Banner */}
+            {showBanner && (
+                <div className="fixed top-0 left-0 right-0 z-[100] bg-[#0f172a] border-b border-white/10 shadow-lg overflow-hidden">
+                    <motion.div
+                        animate={{ x: ["0%", "70%", "0%"] }}
+                        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+                        className="py-2 sm:py-2.5 inline-block"
+                    >
+                        <div className="inline-flex items-center gap-2 sm:gap-3 px-2 sm:px-4">
+                            <Brain className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+                            <span className="text-white font-semibold text-xs sm:text-sm">
+                                <span className="hidden sm:inline">Is Your Organization AI-Ready? Take our free 5-minute assessment</span>
+                                <span className="sm:hidden">AI Readiness Check - Free Assessment</span>
+                            </span>
+                            <Button
+                                onClick={() => setShowQuiz(true)}
+                                size="sm"
+                                className="bg-primary text-white hover:bg-primary/90 text-xs px-2 sm:px-3 py-1 sm:py-1.5"
+                            >
+                                Start
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
+            {/* AI Readiness Modal */}
+            {showQuiz && (
+                <div className="fixed inset-0 z-[110] flex items-start justify-center p-0 sm:p-4 sm:items-center bg-black/80 backdrop-blur-sm overflow-y-auto">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="w-full max-w-3xl min-h-screen sm:min-h-0 sm:my-8"
+                    >
+                        <div className="relative">
+                            <button
+                                onClick={() => setShowQuiz(false)}
+                                className="sticky top-2 sm:absolute sm:-top-4 sm:-right-4 float-right sm:float-none z-10 p-2 sm:p-2.5 bg-red-500/90 hover:bg-red-600 rounded-full text-white transition-all mr-2 sm:mr-0 mb-2 sm:mb-0 shadow-lg text-sm"
+                            >
+                                ✕
+                            </button>
+                            <AIReadinessQuiz />
+                        </div>
+                    </motion.div>
+                </div>
+            )}
+
+            {/* Hero Section with AI Readiness CTA */}
+            <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a] px-4 sm:px-6 pt-32">
                 <div className="container mx-auto max-w-7xl relative z-10 py-12 md:py-0 px-4 sm:px-6">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         {/* Left Side - Content */}
@@ -81,7 +134,7 @@ export default function Home() {
                                     className="w-full sm:w-auto"
                                 >
                                     <Button 
-                                        className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-600 rounded-lg shadow-sm"
+                                        className="w-full sm:w-auto bg-white hover:bg-gray-100 text-blue-600 rounded-sm shadow-sm"
                                     >
                                         Schedule Consultation
                                         <ArrowRight className="ml-2 h-4 w-4" />

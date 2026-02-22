@@ -231,13 +231,13 @@ export function Footer() {
                                 href="/privacy"
                                 className="hover:text-white transition-colors duration-300"
                             >
-                                Privacy Policy
+                                Privacy Notice
                             </Link>
                             <Link
                                 href="/terms"
                                 className="hover:text-white transition-colors duration-300"
                             >
-                                Terms of Service
+                                Terms of Use
                             </Link>
                             <Link
                                 href="#"

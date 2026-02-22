@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import {
     Download,
     CheckCircle2,
-    Sparkles,
-    Calendar,
-    MapPin,
+    Shield,
+    Brain,
+    FileCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AIReadinessQuiz } from "@/components/AIReadinessQuiz";
-import techFestImage from "@/assets/cealed-can.png";
+
 
 export default function TechFest() {
     const [formData, setFormData] = useState({
@@ -33,9 +33,9 @@ export default function TechFest() {
                     name: formData.name,
                     email: formData.email,
                     service: formData.service,
-                    _subject: "Lagos Tech Fest 2026 - Brochure Download",
+                    _subject: "Cealed Resources - Brochure Download Request",
                     _captcha: "false",
-                    _autoresponse: "Thank you for your interest in Cealed! Your brochure download should start automatically. We look forward to connecting at Lagos Tech Fest 2026."
+                    _autoresponse: "Thank you for your interest in Cealed! Your brochure download should start automatically. Our team will reach out to discuss how we can help your organization."
                 })
             });
 
@@ -65,68 +65,59 @@ export default function TechFest() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center max-w-4xl mx-auto mb-8 sm:mb-16"
                     >
-                        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 mb-4 sm:mb-6 bg-blue-600/20 border border-blue-400/40 rounded-full">
-                            <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-blue-300" />
-                            <span className="text-xs sm:text-sm font-medium text-blue-200">
-                                Proud Sponsor
-                            </span>
-                        </div>
-
-                        <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 font-display px-2">
-                            Lagos Tech Fest 2026
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 font-display px-2">
+                            AI Governance & Compliance Resources
                         </h1>
                         <p className="text-base sm:text-xl text-slate-300 px-2">
-                            Sealing compliance gaps, one African business at a time
+                            Free tools and resources to assess your organization's readiness
                         </p>
                     </motion.div>
 
                     {/* Main Content Grid */}
                     <div className="grid lg:grid-cols-2 gap-6 sm:gap-12 max-w-7xl mx-auto">
-                        {/* Left: Image & Event Info */}
+                        {/* Left: Value Props */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
                             className="w-full min-w-0"
                         >
-                            <div className="mb-6 sm:mb-8 overflow-hidden rounded-lg sm:rounded-2xl">
-                                <img
-                                    src={techFestImage}
-                                    alt="Lagos Tech Fest 2026"
-                                    className="w-full h-32 sm:h-48 md:h-56 lg:h-auto max-w-full object-cover"
-                                    loading="lazy"
-                                />
-                            </div>
-
                             <div className="bg-white/5 border border-white/10 rounded-lg sm:rounded-xl p-4 sm:p-6 backdrop-blur-sm">
                                 <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-display">
-                                    About Lagos Tech Fest
+                                    Why Choose Cealed?
                                 </h2>
-                                <p className="text-slate-300 mb-4 leading-relaxed">
-                                    Now in its 6th year, Lagos Tech Fest annually gathers enterprise tech leaders,
-                                    emerging startups, innovators, investors, and government representatives to shape the
-                                    future of Nigeria's tech ecosystem.
+                                <p className="text-slate-300 mb-6 leading-relaxed">
+                                    We help African businesses navigate complex compliance requirements with confidence.
+                                    From AI governance to data privacy, we seal your compliance gaps.
                                 </p>
 
-                                <div className="bg-blue-600/20 border border-blue-400/30 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
-                                    <h3 className="text-base sm:text-lg font-bold text-white mb-2 sm:mb-3">
-                                        Visit Cealed's Stand!
-                                    </h3>
-                                    <p className="text-slate-300 text-xs sm:text-sm mb-2 sm:mb-3">
-                                        Pick a mystery number and stand a chance to win{" "}
-                                        <span className="text-blue-300 font-bold">₦100,000</span>{" "}
-                                        + additional gifts throughout the day.
-                                    </p>
-                                </div>
-
-                                <div className="space-y-3">
-                                    <div className="flex items-center gap-3 text-slate-300">
-                                        <Calendar className="h-5 w-5 text-blue-400" />
-                                        <span className="font-semibold">18th February 2026 • 8:00 AM</span>
+                                <div className="space-y-4">
+                                    <div className="flex items-start gap-3">
+                                        <div className="p-2 bg-blue-600/20 border border-blue-400/30 rounded-lg">
+                                            <Shield className="h-5 w-5 text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-semibold mb-1">Data Privacy Compliance</h3>
+                                            <p className="text-slate-400 text-sm">NDPA, GDPR, and regulatory registration support</p>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-3 text-slate-300">
-                                        <MapPin className="h-5 w-5 text-blue-400" />
-                                        <span>Landmark Event Centre, Lagos</span>
+                                    <div className="flex items-start gap-3">
+                                        <div className="p-2 bg-blue-600/20 border border-blue-400/30 rounded-lg">
+                                            <Brain className="h-5 w-5 text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-semibold mb-1">AI Governance</h3>
+                                            <p className="text-slate-400 text-sm">Risk assessments, policy development, and audits</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <div className="p-2 bg-blue-600/20 border border-blue-400/30 rounded-lg">
+                                            <FileCheck className="h-5 w-5 text-blue-400" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-white font-semibold mb-1">Security Testing</h3>
+                                            <p className="text-slate-400 text-sm">Penetration testing and vulnerability assessments</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -144,10 +135,10 @@ export default function TechFest() {
                                         <>
                                             <div className="text-center mb-6 sm:mb-8">
                                                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3 font-display">
-                                                    Download Cealed's E-brochure
+                                                    Get Your Free Company Profile
                                                 </h2>
                                                 <p className="text-sm sm:text-base text-slate-400">
-                                                    Learn more about our compliance services
+                                                    Download our comprehensive service brochure
                                                 </p>
                                             </div>
 
@@ -203,7 +194,7 @@ export default function TechFest() {
                                                     className="w-full bg-primary hover:bg-primary/90 text-white py-3 sm:py-6 text-sm sm:text-lg shadow-[0_0_30px_rgba(37,99,235,0.3)]"
                                                 >
                                                     <Download className="mr-1 sm:mr-2 h-4 sm:h-5 w-4 sm:w-5" />
-                                                    Download Brochure
+                                                    Get Free Brochure
                                                 </Button>
                                             </form>
                                         </>
@@ -214,7 +205,7 @@ export default function TechFest() {
                                                 Thank You!
                                             </h3>
                                             <p className="text-slate-400 text-lg mb-8">
-                                                Your download should start automatically. We'll be in touch soon!
+                                                Your download should start automatically. Check your email for next steps!
                                             </p>
                                         </div>
                                     )}

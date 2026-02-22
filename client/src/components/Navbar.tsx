@@ -12,13 +12,14 @@ const links = [
     { href: "/compliance", label: "NDPA Audit" },
     { href: "/industries", label: "Industries" },
     { href: "/training", label: "Training & DPO" },
-    { href: "/techfest-live-event-2026", label: "Tech Fest" },
+    { href: "/techfest-live-event-2026", label: "Resources" },
 ];
 
 export function Navbar() {
     const [location] = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const isHomePage = location === "/";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,10 +44,10 @@ export function Navbar() {
     return (
         <>
             <nav
-                className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+                className={`fixed ${isHomePage ? 'top-[44px]' : 'top-0'} z-[101] w-full transition-all duration-300 ${
                     scrolled
-                        ? "bg-white/95 backdrop-blur-xl border-b border-gray-200 py-2 sm:py-3 shadow-sm shadow-black/5"
-                        : "bg-transparent py-3 sm:py-4"
+                        ? "bg-white border-b border-gray-200 py-2 sm:py-3 shadow-sm"
+                        : "bg-[#0f172a] border-b border-white/10 py-3 sm:py-4"
                 }`}
             >
                 <div className="container-responsive">
@@ -160,21 +161,21 @@ export function Navbar() {
                                 damping: 30,
                                 stiffness: 300,
                             }}
-                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-background/98 backdrop-blur-2xl border-l border-white/10 z-[60] lg:hidden shadow-xl"
+                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-[#0f172a] border-l border-white/10 z-[105] lg:hidden shadow-xl overflow-y-auto"
                         >
-                            <div className="flex flex-col h-full pt-14 pb-6 px-5">
+                            <div className="flex flex-col min-h-full pt-20 pb-6 px-6">
                                 {/* Close Button */}
-                                <div className="flex justify-end mb-4">
+                                <div className="absolute top-4 right-4">
                                     <button
                                         onClick={() => setIsOpen(false)}
-                                        className="p-2 text-white hover:text-primary transition-colors bg-white/10 rounded-lg"
+                                        className="p-2.5 text-white hover:text-primary transition-colors bg-white/10 hover:bg-white/20 rounded-lg"
                                     >
-                                        <X className="h-5 w-5" />
+                                        <X className="h-6 w-6" />
                                     </button>
                                 </div>
 
                                 {/* Navigation Links */}
-                                <nav className="flex-1 space-y-1">
+                                <nav className="flex-1 space-y-2">
                                     {links.map((link, index) => (
                                         <motion.div
                                             key={link.href}
@@ -186,10 +187,10 @@ export function Navbar() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`block py-2.5 px-4 text-base font-semibold rounded-lg transition-all duration-200 ${
+                                                className={`block py-4 px-5 text-base font-semibold rounded-xl transition-all duration-200 ${
                                                     location === link.href
-                                                        ? "text-primary bg-primary/10 border-l-4 border-primary"
-                                                        : "text-slate-300 hover:text-white hover:bg-white/5 hover:translate-x-1"
+                                                        ? "text-white bg-primary shadow-lg"
+                                                        : "text-slate-300 hover:text-white hover:bg-white/10"
                                                 }`}
                                                 onClick={() => setIsOpen(false)}
                                             >
@@ -204,15 +205,15 @@ export function Navbar() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
-                                    className="pt-4 border-t border-white/10"
+                                    className="pt-6 border-t border-white/10 mt-6"
                                 >
                                     <Link
                                         href="/contact"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         <Button
-                                            size="default"
-                                            className="w-full font-medium rounded-md bg-primary hover:bg-primary/90"
+                                            size="lg"
+                                            className="w-full font-semibold rounded-xl bg-primary hover:bg-primary/90 py-4 text-base"
                                         >
                                             Schedule Consultation
                                         </Button>

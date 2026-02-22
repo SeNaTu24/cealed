@@ -66,10 +66,12 @@ export default function Terms() {
                                 Cealed is a legal and consultancy firm that provides the following services ("Services") to individuals, businesses, companies, and other entities (collectively referred to as "Clients"):
                             </p>
                             <ul className="list-disc pl-4 sm:pl-6 space-y-2 text-sm sm:text-base">
-                                <li><strong>Legal and Regulatory Advisory:</strong> Legal guidance on regulatory, compliance, and corporate matters affecting Clients' operations.</li>
-                                <li><strong>Startup Advisory:</strong> Guidance on business model, operationality, and corporate governance.</li>
-                                <li><strong>Information Technology Services:</strong> Services relating to Artificial Intelligence (AI) governance, data protection, and information security.</li>
-                                <li><strong>Research and Support Services:</strong> Research and advisory support on business strategy, product development, and operational structures.</li>
+                                <li><strong>Privacy Audit & Compliance Services:</strong> Independent privacy audits, regulatory compliance assessments, gap analysis, and remediation support aligned with applicable data protection laws and global standards.</li>
+                                <li><strong>AI Governance & Assurance:</strong> Design and implementation of AI governance programs, including AI audits, risk assessments, monitoring frameworks, and responsible AI oversight.</li>
+                                <li><strong>Information Security & ISO Advisory:</strong> Advisory and implementation support for information security management systems, ISO certification readiness, and control enhancement programs.</li>
+                                <li><strong>Cybersecurity Testing Services:</strong> Vulnerability Assessment and Penetration Testing (VAPT) to identify, assess, and remediate security weaknesses across systems and infrastructure.</li>
+                                <li><strong>Privacy Implementation & Regulatory Registration:</strong> End-to-end privacy program implementation, operationalization of compliance frameworks, and support for Data Controller/Processor registrations.</li>
+                                <li><strong>Training & Capacity Development:</strong> Targeted privacy, AI governance, and cybersecurity training programs for executive, technical, and operational teams.</li>
                             </ul>
                         </section>
 
