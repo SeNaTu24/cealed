@@ -65,19 +65,15 @@ export function Navbar() {
                         </Link>
 
                         {/* Desktop Nav - Centered */}
-                        <div className="hidden lg:flex lg:items-center lg:space-x-6 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2">
+                        <div className="hidden lg:flex lg:items-center lg:space-x-4 xl:space-x-6 absolute left-1/2 transform -translate-x-1/2">
                             {links.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`text-xs font-medium uppercase tracking-wide transition-all duration-200 link-underline pb-1 ${
+                                    className={`text-[11px] font-medium uppercase tracking-wide transition-all duration-200 link-underline pb-1 whitespace-nowrap ${
                                         location === link.href
-                                            ? scrolled
-                                                ? "text-black"
-                                                : "text-white"
-                                            : scrolled
-                                            ? "text-gray-700 hover:text-black"
-                                            : "text-slate-300 hover:text-white"
+                                            ? scrolled ? "text-black" : "text-white"
+                                            : scrolled ? "text-gray-600 hover:text-black" : "text-slate-400 hover:text-white"
                                     }`}
                                 >
                                     {link.label}
@@ -85,15 +81,21 @@ export function Navbar() {
                             ))}
                         </div>
 
-                        {/* CTA Button */}
-                        <div className="hidden lg:block">
+                        {/* CTA Buttons */}
+                        <div className="hidden lg:flex items-center gap-2">
+                            <Link href="/dcmi-registration">
+                                <Button variant="outline" size="sm"
+                                    className={`rounded-md text-[11px] font-semibold whitespace-nowrap transition-all ${
+                                        scrolled
+                                            ? "border-slate-300 text-slate-700 hover:bg-slate-50"
+                                            : "border-white/20 text-slate-300 hover:text-white hover:border-white/40 bg-transparent"
+                                    }`}>
+                                    Register as DCMI
+                                </Button>
+                            </Link>
                             <Link href="/contact">
-                                <Button
-                                    variant="default"
-                                    size="default"
-                                    className="rounded-md button-hover shadow-sm w-auto"
-                                >
-                                    Schedule Consultation
+                                <Button variant="default" size="sm" className="rounded-md button-hover shadow-sm whitespace-nowrap text-[11px]">
+                                    Consultation
                                 </Button>
                             </Link>
                         </div>
@@ -205,16 +207,15 @@ export function Navbar() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
-                                    className="pt-6 border-t border-white/10 mt-6"
+                                    className="pt-6 border-t border-white/10 mt-6 space-y-3"
                                 >
-                                    <Link
-                                        href="/contact"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        <Button
-                                            size="lg"
-                                            className="w-full font-semibold rounded-xl bg-primary hover:bg-primary/90 py-4 text-base"
-                                        >
+                                    <Link href="/dcmi-registration" onClick={() => setIsOpen(false)}>
+                                        <Button size="lg" variant="outline" className="w-full font-semibold rounded-xl py-4 text-base border-white/20 text-slate-300 hover:text-white hover:bg-white/10 bg-transparent">
+                                            Register as DCMI
+                                        </Button>
+                                    </Link>
+                                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                                        <Button size="lg" className="w-full font-semibold rounded-xl bg-primary hover:bg-primary/90 py-4 text-base">
                                             Schedule Consultation
                                         </Button>
                                     </Link>

@@ -15,6 +15,7 @@ import Industries from "@/pages/Industries";
 import Training from "@/pages/Training";
 import Contact from "@/pages/Contact";
 import TechFest from "@/pages/TechFest";
+import DCMIRegistration from "@/pages/DCMIRegistration";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import NotFound from "@/pages/not-found";
@@ -45,6 +46,7 @@ function Router() {
           <Route path="/contact" component={Contact} />
           <Route path="/techfest" component={TechFest} />
           <Route path="/techfest-live-event-2026" component={TechFest} />
+          <Route path="/dcmi-registration" component={DCMIRegistration} />
           <Route path="/privacy" component={Privacy} />
           <Route path="/terms" component={Terms} />
           <Route component={NotFound} />
