@@ -134,13 +134,41 @@ export default function DCMIRegistration() {
     const handleSubmit = async () => {
         setSubmitting(true);
         try {
-            const body = new FormData();
-            Object.entries(form).forEach(([k, v]) => body.append(k, Array.isArray(v) ? v.join(", ") : v));
-            body.append("_subject", "New DCMI/DCPMI Registration");
-            body.append("_captcha", "false");
-            await fetch("https://formsubmit.co/olusesisamuel04@gmail.com", { method: "POST", body });
-        } finally {
-            setSubmitted(true);
+            const el = document.createElement("form");
+            el.method = "POST";
+            el.action = "https://formsubmit.co/olusesisamuel04@gmail.com";
+
+            const fields: Record<string, string> = {
+                fullName: form.fullName,
+                brandName: form.brandName,
+                email: form.email,
+                phone: form.phone,
+                address: form.address,
+                industry: form.industry,
+                website: form.website,
+                dataVolume: form.dataVolume,
+                sensitiveData: form.sensitiveData,
+                outsideNigeria: form.outsideNigeria,
+                nin: form.nin,
+                dataTypes: form.dataTypes.join(", "),
+                dataReasons: form.dataReasons.join(", "),
+                renewalReminders: form.renewalReminders,
+                _subject: "New DCMI/DCPMI Registration",
+                _captcha: "false",
+                _next: window.location.origin + "/dcmi-registration?submitted=true",
+            };
+
+            Object.entries(fields).forEach(([k, v]) => {
+                const input = document.createElement("input");
+                input.type = "hidden";
+                input.name = k;
+                input.value = v;
+                el.appendChild(input);
+            });
+
+            document.body.appendChild(el);
+            el.submit();
+        } catch {
             setSubmitting(false);
         }
     };
