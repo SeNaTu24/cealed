@@ -44,10 +44,8 @@ export function Navbar() {
     return (
         <>
             <nav
-                className={`fixed ${isHomePage ? 'top-[44px]' : 'top-0'} z-[101] w-full transition-all duration-300 ${
-                    scrolled
-                        ? "bg-white border-b border-gray-200 py-2 sm:py-3 shadow-sm"
-                        : "bg-[#0f172a] border-b border-white/10 py-3 sm:py-4"
+                className={`fixed ${isHomePage ? 'top-[44px]' : 'top-0'} z-[101] w-full transition-all duration-300 bg-white border-b border-gray-200 ${
+                    scrolled ? "py-2 sm:py-3 shadow-sm" : "py-3 sm:py-4"
                 }`}
             >
                 <div className="container-responsive">
@@ -72,8 +70,8 @@ export function Navbar() {
                                     href={link.href}
                                     className={`text-[11px] font-medium uppercase tracking-wide transition-all duration-200 link-underline pb-1 whitespace-nowrap ${
                                         location === link.href
-                                            ? scrolled ? "text-black" : "text-white"
-                                            : scrolled ? "text-gray-600 hover:text-black" : "text-slate-400 hover:text-white"
+                                            ? "text-gray-900"
+                                            : "text-gray-600 hover:text-gray-900"
                                     }`}
                                 >
                                     {link.label}
@@ -85,11 +83,7 @@ export function Navbar() {
                         <div className="hidden lg:flex items-center gap-2">
                             <Link href="/dcmi-registration">
                                 <Button variant="outline" size="sm"
-                                    className={`rounded-md text-[11px] font-semibold whitespace-nowrap transition-all ${
-                                        scrolled
-                                            ? "border-slate-300 text-slate-700 hover:bg-slate-50"
-                                            : "border-white/20 text-slate-300 hover:text-white hover:border-white/40 bg-transparent"
-                                    }`}>
+                                    className="rounded-md text-[11px] font-semibold whitespace-nowrap transition-all border-slate-300 text-slate-700 hover:bg-slate-50">
                                     Register as DCMI
                                 </Button>
                             </Link>
@@ -103,11 +97,7 @@ export function Navbar() {
                         {/* Mobile Menu Button */}
                         <button
                             type="button"
-                            className={`lg:hidden relative z-[70] hover:text-primary focus:outline-none transition-colors duration-200 p-2 -mr-2 rounded-lg backdrop-blur-sm ${
-                                scrolled
-                                    ? "text-gray-700 bg-gray-100/50"
-                                    : "text-white bg-black/20"
-                            }`}
+                        className="lg:hidden relative z-[70] hover:text-primary focus:outline-none transition-colors duration-200 p-2 -mr-2 rounded-lg text-gray-700 bg-gray-100/50"
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label="Toggle menu"
                         >
@@ -120,7 +110,7 @@ export function Navbar() {
                                         exit={{ rotate: 90, opacity: 0 }}
                                         transition={{ duration: 0.15 }}
                                     >
-                                        <X className={`h-5 w-5 ${scrolled ? "text-gray-700" : "text-white"}`} />
+                                        <X className="h-5 w-5 text-gray-700" />
                                     </motion.div>
                                 ) : (
                                     <motion.div
@@ -163,14 +153,14 @@ export function Navbar() {
                                 damping: 30,
                                 stiffness: 300,
                             }}
-                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-[#0f172a] border-l border-white/10 z-[105] lg:hidden shadow-xl overflow-y-auto"
+                            className="fixed top-0 right-0 bottom-0 w-full sm:w-96 bg-white border-l border-gray-200 z-[105] lg:hidden shadow-xl overflow-y-auto"
                         >
                             <div className="flex flex-col min-h-full pt-20 pb-6 px-6">
                                 {/* Close Button */}
                                 <div className="absolute top-4 right-4">
-                                    <button
+                                        <button
                                         onClick={() => setIsOpen(false)}
-                                        className="p-2.5 text-white hover:text-primary transition-colors bg-white/10 hover:bg-white/20 rounded-lg"
+                                        className="p-2.5 text-gray-700 hover:text-primary transition-colors bg-gray-100 hover:bg-gray-200 rounded-lg"
                                     >
                                         <X className="h-6 w-6" />
                                     </button>
@@ -189,10 +179,10 @@ export function Navbar() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`block py-4 px-5 text-base font-semibold rounded-xl transition-all duration-200 ${
+                                            className={`block py-4 px-5 text-base font-semibold rounded-xl transition-all duration-200 ${
                                                     location === link.href
                                                         ? "text-white bg-primary shadow-lg"
-                                                        : "text-slate-300 hover:text-white hover:bg-white/10"
+                                                        : "text-slate-700 hover:text-gray-900 hover:bg-slate-50"
                                                 }`}
                                                 onClick={() => setIsOpen(false)}
                                             >
@@ -207,10 +197,10 @@ export function Navbar() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
-                                    className="pt-6 border-t border-white/10 mt-6 space-y-3"
+                                    className="pt-6 border-t border-slate-200 mt-6 space-y-3"
                                 >
                                     <Link href="/dcmi-registration" onClick={() => setIsOpen(false)}>
-                                        <Button size="lg" variant="outline" className="w-full font-semibold rounded-xl py-4 text-base border-white/20 text-slate-300 hover:text-white hover:bg-white/10 bg-transparent">
+                                        <Button size="lg" variant="outline" className="w-full font-semibold rounded-xl py-4 text-base border-slate-300 text-slate-700 hover:text-gray-900 hover:bg-slate-50">
                                             Register as DCMI
                                         </Button>
                                     </Link>

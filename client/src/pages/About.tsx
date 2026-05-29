@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 
 export default function About() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#0f172a]">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
@@ -32,7 +32,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-[#030712]">
+      <section className="section-padding bg-slate-50">
         <div className="container-responsive">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div 
@@ -40,14 +40,14 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full p-8 md:p-10 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300">
+              <Card className="h-full p-8 md:p-10 bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300">
                 <div className="mb-6">
                   <div className="inline-block p-3 bg-primary/10 border border-primary/20 rounded-lg">
                     <Target className="h-8 w-8 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">Our Mission</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 font-display">Our Mission</h3>
+                <p className="text-slate-500 leading-relaxed">
                   To simplify data privacy and regulatory compliance for African businesses, enabling them to operate securely, build customer trust, and compete on a global scale. We believe compliance shouldn't be a bottleneck, but a business enabler that protects organizations from regulatory sanctions, reputational damage, financial losses, and operational disruptions.
                 </p>
               </Card>
@@ -59,14 +59,14 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Card className="h-full p-8 md:p-10 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300">
+              <Card className="h-full p-8 md:p-10 bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300">
                 <div className="mb-6">
                   <div className="inline-block p-3 bg-primary/10 border border-primary/20 rounded-lg">
                     <Award className="h-8 w-8 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-display">Our Vision</h3>
-                <p className="text-slate-400 leading-relaxed">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 font-display">Our Vision</h3>
+                <p className="text-slate-500 leading-relaxed">
                   To be the leading authority on Data Protection and Privacy Law in Africa, fostering a digital ecosystem where innovation thrives alongside security and individual rights.
                 </p>
               </Card>
@@ -76,7 +76,7 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="section-padding bg-[#020617]">
+      <section className="section-padding bg-white">
         <div className="container-responsive">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -87,11 +87,10 @@ export default function About() {
               <SectionHeader 
                 title="Who We Are" 
                 subtitle="Leading the regulatory compliance revolution across Africa"
-                className="text-white"
               />
             </motion.div>
             
-            <div className="space-y-6 text-slate-400 text-base md:text-lg mt-12">
+            <div className="space-y-6 text-slate-600 text-base md:text-lg mt-12">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -133,13 +132,13 @@ export default function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-panel p-5 rounded-lg hover:bg-white/10 transition-all duration-300 group"
+                  className="bg-slate-50 border border-slate-200 p-5 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-300 group"
                 >
                   <div className="flex items-center gap-4">
                     <div className="p-2.5 bg-primary/10 border border-primary/20 rounded-lg group-hover:scale-110 transition-transform">
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
-                    <span className="font-medium text-slate-300 text-sm md:text-base">{item.text}</span>
+                    <span className="font-medium text-slate-700 text-sm md:text-base">{item.text}</span>
                   </div>
                 </motion.div>
               ))}
@@ -149,12 +148,11 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="section-padding bg-[#030712]">
+      <section className="section-padding bg-slate-50">
         <div className="container-responsive">
           <SectionHeader 
             title="Our Core Values" 
             subtitle="The principles that guide everything we do"
-            className="text-white"
           />
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16">
@@ -182,14 +180,14 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full p-6 md:p-8 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300 card-hover group text-center">
+                <Card className="h-full p-6 md:p-8 bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300 card-hover group text-center">
                   <div className="mx-auto mb-6 p-4 bg-primary/10 border border-primary/20 rounded-lg w-fit group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-display">
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 font-display">
                     {value.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-500 text-sm leading-relaxed">
                     {value.desc}
                   </p>
                 </Card>
@@ -200,7 +198,7 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-[#020617]">
+      <section className="section-padding bg-white">
         <div className="container-responsive">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
@@ -216,12 +214,12 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="p-6 md:p-8 text-center bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300 card-hover">
+                <Card className="p-6 md:p-8 text-center bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300 card-hover">
                   <stat.icon className="h-8 w-8 text-primary mx-auto mb-4" />
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 font-display">
+                  <div className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 font-display">
                     {stat.value}
                   </div>
-                  <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider">
+                  <div className="text-xs md:text-sm text-slate-500 uppercase tracking-wider">
                     {stat.label}
                   </div>
                 </Card>

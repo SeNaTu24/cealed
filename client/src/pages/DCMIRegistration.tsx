@@ -213,6 +213,8 @@ function ProgressBar({ step }: { step: number }) {
 
 export default function DCMIRegistration() {
     const [step, setStep] = useState(-1);
+    const [welcomeTerms, setWelcomeTerms] = useState(false);
+    const [welcomePrivacy, setWelcomePrivacy] = useState(false);
     const [form, setFormState] = useState<FormData>(initialData);
     const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
     const [submitted, setSubmitted] = useState(false);
@@ -413,44 +415,62 @@ export default function DCMIRegistration() {
                         transition={{ duration: 0.4 }}
                     >
                         <div className="text-center mb-8">
-                            <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 border border-primary/20 mb-4">
-                                <Shield className="w-7 h-7 text-primary" />
+                            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border border-primary/20 mb-5">
+                                <Shield className="w-8 h-8 text-primary" />
                             </div>
-                            <span className="block text-xs font-semibold uppercase tracking-widest text-primary mb-2">
+                            <span className="block text-xs font-semibold uppercase tracking-widest text-primary mb-3">
                                 NDPC Compliance
                             </span>
-                            <h1 className="text-3xl font-bold text-white mb-2">NDPC DCMI Registration</h1>
-                            <p className="text-base font-medium text-slate-300 mb-4">
+                            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-3 leading-tight">
+                                NDPC DCMI Registration
+                            </h1>
+                            <p className="text-lg sm:text-xl font-medium text-slate-300 mb-5">
                                 Data Controller/Processor of Major Importance
                             </p>
-                            <p className="text-slate-400 text-sm leading-relaxed max-w-lg mx-auto">
+                            <p className="text-slate-400 text-sm leading-relaxed max-w-lg mx-auto mb-3">
                                 Registering your organisation as a DCMI is a key compliance step under Nigerian law,
                                 and we're here to make the process as simple as possible for you.
                             </p>
+                            <p className="text-sm text-slate-500">
+                                If you have any questions before submitting, please email{" "}
+                                <a href="mailto:info@cealed.africa" className="text-primary hover:underline">
+                                    info@cealed.africa
+                                </a>.
+                            </p>
                         </div>
 
-                        <div className={`${card} p-6 mb-4 space-y-4`}>
-                            {[
-                                <>To get started, we need a few details about your business and data practices.</>,
-                                <>This form takes approximately <span className="text-white font-medium">3 minutes</span> to complete.</>,
-                                <>Once you submit, our team will be in touch shortly with your <span className="text-white font-medium">invoice and next steps</span>.</>,
-                                <>If you have any questions before submitting, please email{" "}
-                                    <a href="mailto:info@cealed.africa" className="text-primary hover:underline">
-                                        info@cealed.africa
-                                    </a>.</>,
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-start gap-3">
-                                    <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
-                                    <p className="text-sm text-slate-300">{item}</p>
-                                </div>
-                            ))}
+                        {/* Consent block */}
+                        <div className={`${card} p-5 mb-4 space-y-4`}>
+                            <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
+                                Before you begin
+                            </p>
+                            <ConsentCheckbox
+                                checked={welcomeTerms}
+                                onChange={() => setWelcomeTerms(v => !v)}
+                            >
+                                I have read and agree to Cealed Africa's{" "}
+                                <a href="/terms" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+                                    Terms of Use
+                                </a>.
+                            </ConsentCheckbox>
+                            <ConsentCheckbox
+                                checked={welcomePrivacy}
+                                onChange={() => setWelcomePrivacy(v => !v)}
+                            >
+                                I have read and accept Cealed Africa's{" "}
+                                <a href="/privacy" className="text-primary hover:underline" target="_blank" rel="noreferrer">
+                                    Privacy Notice
+                                </a>. I understand how my data will be used.
+                            </ConsentCheckbox>
                         </div>
 
                         <button
                             onClick={() => setStep(0)}
-                            className="w-full py-3.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all flex items-center justify-center gap-2 text-sm"
+                            disabled={!welcomeTerms || !welcomePrivacy}
+                            className="group mx-auto flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200 text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105"
                         >
-                            Start Registration <ChevronRight className="w-4 h-4" />
+                            Start Registration
+                            <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                         </button>
                     </motion.div>
                 )}

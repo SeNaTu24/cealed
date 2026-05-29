@@ -291,7 +291,7 @@ export default function Services() {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-[#0f172a]">
+        <div className="flex flex-col min-h-screen bg-white">
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0f172a] overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
@@ -322,7 +322,7 @@ export default function Services() {
             </section>
 
             {/* Category Tabs */}
-            <section className="section-padding bg-[#030712]">
+            <section className="section-padding bg-white">
                 <div className="container-responsive">
                     {/* Tabs */}
                     <div className="flex flex-wrap gap-3 mb-12 justify-center">
@@ -333,7 +333,7 @@ export default function Services() {
                                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                                     activeTab === category.id
                                         ? "bg-primary text-white shadow-[0_0_30px_rgba(37,99,235,0.3)]"
-                                        : "bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10"
+                                : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900 border border-slate-200"
                                 }`}
                             >
                                 {category.label}
@@ -356,16 +356,16 @@ export default function Services() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <Card className="h-full p-6 md:p-8 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-300 card-hover group flex flex-col">
+                                <Card className="h-full p-6 md:p-8 bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-300 card-hover group flex flex-col">
                                     <div className="mb-5 p-3 bg-primary/10 border border-primary/20 rounded-lg w-fit group-hover:scale-110 transition-transform duration-300 icon-container icon-pulse">
                                         <service.icon className="h-7 w-7 text-primary" />
                                     </div>
 
-                                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 font-display group-hover:text-primary transition-colors">
+                                    <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 font-display group-hover:text-primary transition-colors">
                                         {service.title}
                                     </h3>
 
-                                    <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
                                         {service.description}
                                     </p>
 
@@ -379,7 +379,7 @@ export default function Services() {
                                                         className="flex items-start gap-2.5"
                                                     >
                                                         <CheckCircle2 className="h-4 w-4 text-primary/60 shrink-0 mt-0.5" />
-                                                        <span className="text-xs text-slate-300">
+                                        <span className="text-xs text-slate-600">
                                                             {feature}
                                                         </span>
                                                     </li>
@@ -395,8 +395,8 @@ export default function Services() {
             </section>
 
             {/* CTA Section */}
-            <section className="section-padding bg-gradient-to-br from-primary/10 via-[#030712] to-[#030712] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
+            <section className="section-padding bg-gradient-to-br from-blue-50 via-slate-50 to-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
 
                 <div className="container-responsive relative z-10">
                     <motion.div
@@ -405,16 +405,16 @@ export default function Services() {
                         viewport={{ once: true }}
                         className="max-w-4xl mx-auto text-center"
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-display">
                             Let's Build Your Compliance Strategy
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+                        <p className="text-lg md:text-xl text-slate-500 mb-10 max-w-2xl mx-auto">
                             Schedule a consultation to discuss how our services
                             can protect your organization and enable growth.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link href="/contact">
-                                <Button className="bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.3)] button-hover">
+                                <Button className="bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.2)] button-hover">
                                     Schedule Consultation
                                     <ArrowRight className="ml-3 h-5 w-5" />
                                 </Button>
@@ -422,7 +422,7 @@ export default function Services() {
                             <Link href="/compliance">
                                 <Button
                                     variant="outline"
-                                    className="text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover"
+                                    className="text-slate-700 border-slate-300 hover:bg-white rounded-lg button-hover"
                                 >
                                     Our Process
                                 </Button>

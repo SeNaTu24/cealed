@@ -181,7 +181,7 @@ export default function Home() {
             </section>
 
             {/* Trust Frameworks */}
-            <section className="py-12 md:py-16 bg-[#0f172a] border-y border-blue-800">
+            <section className="py-12 md:py-16 bg-slate-50 border-y border-slate-200">
                 <div className="container-responsive">
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -208,7 +208,7 @@ export default function Home() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="text-base sm:text-lg lg:text-xl font-bold tracking-wider text-white font-display hover:text-primary transition-colors"
+                        className="text-base sm:text-lg lg:text-xl font-bold tracking-wider text-slate-700 font-display hover:text-primary transition-colors"
                             >
                                 {brand}
                             </motion.span>
@@ -218,12 +218,11 @@ export default function Home() {
             </section>
 
             {/* Core Services */}
-            <section className="py-12 md:py-20 bg-[#0f172a] relative">
+            <section className="py-12 md:py-20 bg-white relative">
                 <div className="container mx-auto max-w-7xl px-4 sm:px-6">
                     <SectionHeader
                         title="Strategic Compliance Services"
                         subtitle="Comprehensive advisory for high-growth organizations navigating complex regulatory landscapes"
-                        className="text-white"
                     />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -296,14 +295,14 @@ export default function Home() {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                             >
-                                <Card className="h-full p-6 bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-200 card-hover group">
+                                <Card className="h-full p-6 bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-200 card-hover group">
                                     <div className="mb-4 p-2.5 bg-primary/10 border border-primary/20 rounded-lg w-fit group-hover:scale-105 transition-transform duration-200 icon-container">
                                         <service.icon className="h-6 w-6 text-primary" />
                                     </div>
-                                    <h3 className="text-display-sm text-white mb-3 group-hover:text-primary transition-colors">
+                                    <h3 className="text-display-sm text-slate-900 mb-3 group-hover:text-primary transition-colors">
                                         {service.title}
                                     </h3>
-                                    <p className="text-body-sm text-slate-400 mb-4">
+                                    <p className="text-body-sm text-slate-500 mb-4">
                                         {service.desc}
                                     </p>
                                     <ul className="space-y-2">
@@ -331,7 +330,7 @@ export default function Home() {
                         <Link href="/services">
                             <Button
                                 variant="outline"
-                                className="text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover"
+                                className="text-slate-700 border-slate-300 hover:bg-slate-50 rounded-lg button-hover"
                             >
                                 View All Services
                                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -342,7 +341,7 @@ export default function Home() {
             </section>
 
             {/* Why Choose Cealed */}
-            <section className="section-padding bg-slate-900 relative">
+            <section className="section-padding bg-slate-50 relative">
                 <div className="container-responsive">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <motion.div
@@ -351,10 +350,9 @@ export default function Home() {
                             viewport={{ once: true }}
                         >
                             <SectionHeader
-                                title="Why Leading Organizations Choose Cealed"
-                                subtitle="Trusted by forward-thinking companies across Africa"
-                                align="left"
-                                className="text-white"
+                        title="Why Leading Organizations Choose Cealed"
+                        subtitle="Trusted by forward-thinking companies across Africa"
+                        align="left"
                             />
 
                             <div className="space-y-6 mt-8">
@@ -381,16 +379,16 @@ export default function Home() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
-                                        className="flex gap-4 p-4 glass-panel rounded-lg hover:bg-white/10 transition-all duration-200"
+                                        className="flex gap-4 p-4 bg-white border border-slate-200 shadow-sm rounded-lg hover:shadow-md transition-all duration-200"
                                     >
                                         <div className="shrink-0 p-2.5 bg-primary/10 border border-primary/20 rounded-lg h-fit">
                                             <item.icon className="h-5 w-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h4 className="text-display-sm text-white mb-2">
+                                            <h4 className="text-display-sm text-slate-900 mb-2">
                                                 {item.title}
                                             </h4>
-                                            <p className="text-body-sm text-slate-400">
+                                            <p className="text-body-sm text-slate-500">
                                                 {item.desc}
                                             </p>
                                         </div>
@@ -434,14 +432,14 @@ export default function Home() {
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
                                 >
-                                    <Card className="p-6 text-center bg-white/5 border-white/10 backdrop-blur-md hover:bg-white/10 hover:border-primary/40 transition-all duration-200 card-hover">
+                                    <Card className="p-6 text-center bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-primary/40 transition-all duration-200 card-hover">
                                         <div className="icon-container inline-block mb-3">
                                             <stat.icon className="h-7 w-7 text-primary" />
                                         </div>
-                                        <div className="text-2xl sm:text-3xl font-bold text-white mb-1 font-display">
+                                        <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1 font-display">
                                             {stat.value}
                                         </div>
-                                        <div className="text-xs text-slate-400 uppercase tracking-wider">
+                                        <div className="text-xs text-slate-500 uppercase tracking-wider">
                                             {stat.label}
                                         </div>
                                     </Card>
@@ -453,12 +451,11 @@ export default function Home() {
             </section>
 
             {/* Process Overview */}
-            <section className="section-padding bg-slate-950 relative">
+            <section className="section-padding bg-white relative">
                 <div className="container-responsive">
                     <SectionHeader
                         title="Our Proven Process"
                         subtitle="A systematic approach to achieving and maintaining compliance"
-                        className="text-white"
                     />
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 md:mt-16">
@@ -495,14 +492,14 @@ export default function Home() {
                                 {index < 3 && (
                                     <div className="hidden lg:block absolute top-8 -right-3 w-6 h-px bg-gradient-to-r from-primary to-transparent" />
                                 )}
-                                <div className="glass-panel p-5 rounded-lg hover:bg-white/10 transition-all duration-200 h-full">
-                                    <div className="text-4xl font-bold text-primary/20 mb-3 font-display">
+                                <div className="bg-slate-50 border border-slate-200 p-5 rounded-lg hover:bg-white hover:shadow-sm transition-all duration-200 h-full">
+                                    <div className="text-4xl font-bold text-primary/30 mb-3 font-display">
                                         {item.step}
                                     </div>
-                                    <h3 className="text-display-sm text-white mb-2">
+                                    <h3 className="text-display-sm text-slate-900 mb-2">
                                         {item.title}
                                     </h3>
-                                    <p className="text-body-sm text-slate-400">
+                                    <p className="text-body-sm text-slate-500">
                                         {item.desc}
                                     </p>
                                 </div>
@@ -520,7 +517,7 @@ export default function Home() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover"
+                                className="text-slate-700 border-slate-300 hover:bg-slate-50 rounded-lg button-hover"
                             >
                                 Learn More About Our Process
                                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -531,8 +528,8 @@ export default function Home() {
             </section>
 
             {/* Final CTA */}
-            <section className="section-padding bg-gradient-to-br from-primary/10 via-[#030712] to-[#030712] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
+            <section className="section-padding bg-gradient-to-br from-blue-50 via-slate-50 to-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
 
                 <div className="container-responsive relative z-10">
                     <motion.div
@@ -541,16 +538,16 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="max-w-4xl mx-auto text-center"
                     >
-                        <h2 className="text-display-lg text-white mb-6">
+                        <h2 className="text-display-lg text-slate-900 mb-6">
                             Ready to Seal Your Compliance?
                         </h2>
-                        <p className="text-body-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+                        <p className="text-body-lg text-slate-500 mb-8 max-w-2xl mx-auto">
                             Schedule a consultation with our compliance experts
                             and discover how we can protect your organization.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                             <Link href="/contact">
-                                <Button className="bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.3)] button-hover">
+                                <Button className="bg-primary hover:bg-primary/90 text-white rounded-lg shadow-[0_0_30px_rgba(37,99,235,0.2)] button-hover">
                                     Get Started Today
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Button>
@@ -558,7 +555,7 @@ export default function Home() {
                             <Link href="/about">
                                 <Button
                                     variant="outline"
-                                    className="text-white border-white/20 hover:bg-white/5 rounded-lg backdrop-blur-sm button-hover"
+                                    className="text-slate-700 border-slate-300 hover:bg-white rounded-lg button-hover"
                                 >
                                     Learn About Us
                                 </Button>

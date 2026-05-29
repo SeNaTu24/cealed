@@ -25,12 +25,12 @@ export default function Terms() {
         <div className="min-h-screen bg-background">
             <section className="pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20">
                 <div className="container-responsive max-w-4xl">
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8">
                         Terms of Use
                     </h1>
 
-                    <div className="glass-panel rounded-lg p-4 sm:p-6 mb-8">
-                        <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
+                    <div className="bg-white border border-slate-200 shadow-sm rounded-lg p-4 sm:p-6 mb-8">
+                        <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
                             Please read these terms and conditions ("Terms of Use" or "Terms") carefully as they govern your access to and use of our website (the "Website") and services provided by Cealed Africa Limited ("Cealed", "We", or "Us"), and contain important information about your legal rights, remedies, and obligations in relation to your use of the Website, <a href="https://cealed.africa" className="text-primary hover:underline">www.cealed.africa</a>.
                         </p>
                         <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
@@ -42,14 +42,14 @@ export default function Terms() {
                     </div>
 
                     {/* Table of Contents */}
-                    <div className="glass-panel rounded-lg p-4 sm:p-6 mb-8">
-                        <h2 className="text-lg font-semibold text-white mb-4">Contents</h2>
+                    <div className="bg-white border border-slate-200 shadow-sm rounded-lg p-4 sm:p-6 mb-8">
+                        <h2 className="text-lg font-semibold text-slate-900 mb-4">Contents</h2>
                         <nav className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {sections.map((section) => (
                                 <a
                                     key={section.id}
                                     href={`#${section.id}`}
-                                    className="text-sm text-slate-300 hover:text-primary transition-colors"
+                                    className="text-sm text-slate-600 hover:text-primary transition-colors"
                                 >
                                     → {section.title}
                                 </a>

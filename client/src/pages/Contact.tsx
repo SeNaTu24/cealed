@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Contact() {
     return (
-        <div className="min-h-screen pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-24 bg-[#0f172a] p-4">
+        <div className="min-h-screen pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-24 bg-slate-50 p-4">
             <section className="container-responsive mb-8 sm:mb-12 md:mb-16">
                 <SectionHeader
                     title="Schedule Your Consultation"
@@ -16,8 +16,8 @@ export default function Contact() {
                 <div className="grid gap-6 sm:gap-8 md:gap-12 lg:grid-cols-2 max-w-6xl mx-auto">
                     {/* Contact Info */}
                     <div className="order-2 lg:order-1">
-                        <div className="bg-white/5 border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-2xl shadow-sm mb-4 sm:mb-6 md:mb-8">
-                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 md:mb-6 font-display text-white">
+                        <div className="bg-white border border-slate-200 shadow-sm p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-2xl mb-4 sm:mb-6 md:mb-8">
+                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 md:mb-6 font-display text-slate-900">
                                 Contact Information
                             </h3>
                             <div className="space-y-3 sm:space-y-4 md:space-y-5 md:space-y-6">
@@ -26,10 +26,10 @@ export default function Contact() {
                                         <MapPin className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                                     </div>
                                     <div className="min-w-0">
-                                        <p className="font-semibold text-white text-xs sm:text-sm md:text-base">
+                                        <p className="font-semibold text-slate-900 text-xs sm:text-sm md:text-base">
                                             Our Office
                                         </p>
-                                        <p className="text-slate-300 text-xs sm:text-sm md:text-base break-words">
+                                        <p className="text-slate-600 text-xs sm:text-sm md:text-base break-words">
                                             Plot 9a, Femi Ogun street, Magodo
                                             <br />
                                             Lagos, Nigeria
@@ -42,12 +42,12 @@ export default function Contact() {
                                         <Phone className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                                     </div>
                                     <div className="min-w-0">
-                                        <p className="font-semibold text-white text-xs sm:text-sm md:text-base">
+                                        <p className="font-semibold text-slate-900 text-xs sm:text-sm md:text-base">
                                             Phone
                                         </p>
                                         <a
                                             href="tel:+2348143708860"
-                                            className="text-slate-300 hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all"
+                                            className="text-slate-600 hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all"
                                         >
                                             +234 8143708860
                                         </a>
@@ -59,12 +59,12 @@ export default function Contact() {
                                         <Mail className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
                                     </div>
                                     <div className="min-w-0">
-                                        <p className="font-semibold text-white text-xs sm:text-sm md:text-base">
+                                        <p className="font-semibold text-slate-900 text-xs sm:text-sm md:text-base">
                                             Email
                                         </p>
                                         <a
                                             href="mailto:info@cealed.co"
-                                            className="text-slate-300 hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all"
+                                            className="text-slate-600 hover:text-primary transition-colors text-xs sm:text-sm md:text-base break-all"
                                         >
                                             info@cealed.co
                                         </a>
@@ -73,11 +73,11 @@ export default function Contact() {
                             </div>
                         </div>
 
-                        <div className="bg-white/5 border border-white/10 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-2xl shadow-xl">
-                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4 font-display">
+                        <div className="bg-white border border-slate-200 shadow-sm p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-2xl">
+                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 md:mb-4 font-display text-slate-900">
                                 NDPA Compliance Reminder
                             </h3>
-                            <p className="text-slate-300 italic text-xs sm:text-sm md:text-base leading-relaxed">
+                            <p className="text-slate-600 italic text-xs sm:text-sm md:text-base leading-relaxed">
                                 "UHL and EHL organizations must file an annual
                                 Compliance Audit Return (CAR) with the NDPC no
                                 later than March 31 each year. Organizations

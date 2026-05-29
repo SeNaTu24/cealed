@@ -12,7 +12,7 @@ import {
 
 export default function Training() {
     return (
-        <div className="min-h-screen pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24 bg-[#0f172a]">
+        <div className="min-h-screen pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-16 md:pb-24 bg-slate-50">
             {/* Header */}
             <section className="container-responsive mb-8 sm:mb-12 md:mb-16">
                 <SectionHeader
@@ -29,7 +29,7 @@ export default function Training() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-white/5 border border-white/10 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl shadow-2xl relative overflow-hidden flex flex-col card-hover"
+                        className="bg-white border border-slate-200 shadow-sm text-slate-900 p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl relative overflow-hidden flex flex-col card-hover hover:shadow-md"
                     >
                         <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 bg-primary rounded-full blur-[40px] sm:blur-[60px] md:blur-[80px] opacity-20 translate-x-1/2 -translate-y-1/2" />
 
@@ -41,7 +41,7 @@ export default function Training() {
                             <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 font-display">
                                 Corporate Training
                             </h3>
-                            <p className="text-slate-300 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
+                            <p className="text-slate-600 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
                                 Bespoke data protection training delivered
                                 team-by-team or organization-wide over 1-3
                                 weeks, flexibly:
@@ -71,7 +71,7 @@ export default function Training() {
 
                         <div className="flex justify-center mt-auto">
                             <Link href="/contact">
-                                <Button className="bg-white text-slate-900 hover:bg-slate-100 button-hover rounded-lg whitespace-nowrap">
+                            <Button className="bg-primary text-white hover:bg-primary/90 button-hover rounded-lg whitespace-nowrap">
                                     Request Training Brochure
                                 </Button>
                             </Link>
@@ -84,17 +84,17 @@ export default function Training() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="bg-white/5 border border-white/10 backdrop-blur-md p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl shadow-xl flex flex-col card-hover"
+                        className="bg-white border border-slate-200 shadow-sm p-4 sm:p-6 md:p-8 lg:p-10 rounded-lg sm:rounded-2xl md:rounded-3xl flex flex-col card-hover hover:shadow-md"
                     >
                         <div className="relative flex-1">
                             <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-primary/10 rounded-lg sm:rounded-xl md:rounded-2xl mb-4 sm:mb-6 icon-container icon-spin">
                                 <Users className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-primary" />
                             </div>
 
-                            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 text-white font-display">
+                            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 text-slate-900 font-display">
                                 DPO as a Service
                             </h3>
-                            <p className="text-slate-300 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
+                            <p className="text-slate-600 mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
                                 Cealed offers outsourced DPO services for
                                 organizations that lack internal capacity,
                                 providing ongoing compliance oversight and
@@ -107,10 +107,10 @@ export default function Training() {
                                         1
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
+                                        <h4 className="font-bold text-slate-900 text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
                                             Compliance Oversight
                                         </h4>
-                                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                                             Oversees compliance and advises
                                             management on data protection
                                             matters.
@@ -122,10 +122,10 @@ export default function Training() {
                                         2
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
+                                        <h4 className="font-bold text-slate-900 text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
                                             NDPC Liaison
                                         </h4>
-                                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                                             Acts as liaison with NDPC and
                                             handles data subject requests.
                                         </p>
@@ -136,10 +136,10 @@ export default function Training() {
                                         3
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-white text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
+                                        <h4 className="font-bold text-slate-900 text-xs sm:text-sm md:text-base mb-0.5 sm:mb-1">
                                             Incident Response
                                         </h4>
-                                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                                             Provides incident response guidance
                                             and delivers compliance reports.
                                         </p>
@@ -168,10 +168,10 @@ export default function Training() {
                         viewport={{ once: true }}
                         className="text-center mb-12 md:mb-16"
                     >
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 font-display">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 font-display">
                             Why Choose Our Training?
                         </h2>
-                        <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
+                        <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
                             Practical, engaging, and tailored to your
                             organization's specific needs and compliance
                             requirements.

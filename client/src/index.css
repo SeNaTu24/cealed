@@ -7,37 +7,38 @@
 :root {
   /* Corporate Dark Theme - Lightened for better contrast */
   --primary: 215 100% 45%;
-  /* More vibrant professional blue */
+  /* Vibrant professional blue */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 220 25% 18%;
-  /* Slightly lighter dark background */
-  --secondary-foreground: 210 20% 98%;
+  --secondary: 210 40% 96%;
+  /* Light secondary */
+  --secondary-foreground: 222 47% 11%;
 
-  --muted: 220 20% 24%;
-  --muted-foreground: 215 20% 65%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 20% 45%;
 
-  --accent: 200 100% 50%;
-  /* Cyan accent for interactive elements */
-  --accent-foreground: 215 100% 10%;
+  --accent: 210 100% 97%;
+  /* Soft blue accent */
+  --accent-foreground: 215 100% 40%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
 
-  --background: 222 47% 12%;
-  /* Lighter dark blue/black background */
-  --foreground: 210 40% 98%;
+  --background: 210 40% 98%;
+  /* Clean light background */
+  --foreground: 222 47% 11%;
+  /* Dark navy text */
 
-  --card: 222 47% 16%;
-  /* Lighter cards */
-  --card-foreground: 210 40% 98%;
+  --card: 0 0% 100%;
+  /* White cards */
+  --card-foreground: 222 47% 11%;
 
-  --popover: 222 47% 16%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
 
-  --border: 217 33% 26%;
-  /* Lighter borders for better visibility */
-  --input: 217 33% 24%;
+  --border: 214 32% 91%;
+  /* Light slate border */
+  --input: 214 32% 91%;
   --ring: 215 100% 45%;
 
   --radius: 0.25rem;
@@ -221,13 +222,18 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
   }
 
-  /* Glass Effects */
+  /* Glass Effects — dark variant (heroes, dark sections) */
   .glass-panel {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
 
   .glass-panel-strong {
     @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+
+  /* Light panel — body sections on light backgrounds */
+  .light-panel {
+    @apply bg-white border border-slate-200 shadow-sm;
   }
 
   /* Button hover and active states - More subtle */
@@ -266,10 +272,10 @@
   /* Sophisticated Backgrounds */
   .gradient-mesh {
     background:
-      radial-gradient(at 0% 0%, hsla(215, 100%, 45%, 0.1) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(200, 100%, 50%, 0.1) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, hsla(215, 100%, 45%, 0.1) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, hsla(200, 100%, 50%, 0.1) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, hsla(215, 100%, 45%, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(200, 100%, 50%, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(215, 100%, 45%, 0.06) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(200, 100%, 50%, 0.06) 0px, transparent 50%);
   }
 
   /* Premium Shadows */
