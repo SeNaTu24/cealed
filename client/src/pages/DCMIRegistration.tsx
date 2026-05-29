@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, AlertTriangle, ChevronRight, ChevronLeft, Shield } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 type FormData = {
     fullName: string;
@@ -134,41 +135,29 @@ export default function DCMIRegistration() {
     const handleSubmit = async () => {
         setSubmitting(true);
         try {
-            const el = document.createElement("form");
-            el.method = "POST";
-            el.action = "https://formsubmit.co/olusesisamuel04@gmail.com";
-
-            const fields: Record<string, string> = {
-                fullName: form.fullName,
-                brandName: form.brandName,
-                email: form.email,
-                phone: form.phone,
-                address: form.address,
-                industry: form.industry,
-                website: form.website,
-                dataVolume: form.dataVolume,
-                sensitiveData: form.sensitiveData,
-                outsideNigeria: form.outsideNigeria,
-                nin: form.nin,
-                dataTypes: form.dataTypes.join(", "),
-                dataReasons: form.dataReasons.join(", "),
-                renewalReminders: form.renewalReminders,
-                _subject: "New DCMI/DCPMI Registration",
-                _captcha: "false",
-                _next: window.location.origin + "/dcmi-registration?submitted=true",
-            };
-
-            Object.entries(fields).forEach(([k, v]) => {
-                const input = document.createElement("input");
-                input.type = "hidden";
-                input.name = k;
-                input.value = v;
-                el.appendChild(input);
-            });
-
-            document.body.appendChild(el);
-            el.submit();
-        } catch {
+            await emailjs.send(
+                "service_mr6tpqs",
+                "template_1oea7wj",
+                {
+                    fullName: form.fullName,
+                    brandName: form.brandName,
+                    email: form.email,
+                    phone: form.phone,
+                    address: form.address,
+                    industry: form.industry,
+                    website: form.website,
+                    dataVolume: form.dataVolume,
+                    sensitiveData: form.sensitiveData,
+                    outsideNigeria: form.outsideNigeria,
+                    nin: form.nin,
+                    dataTypes: form.dataTypes.join(", "),
+                    dataReasons: form.dataReasons.join(", "),
+                    renewalReminders: form.renewalReminders,
+                },
+                "TDuOmmrz0I_Z9X6iz"
+            );
+        } finally {
+            setSubmitted(true);
             setSubmitting(false);
         }
     };
